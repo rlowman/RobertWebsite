@@ -11,6 +11,7 @@ class InvalidEquationError(Error):
     pass
 
 class InvalidNumberFormat(Error):
-    def __init__(self, message, token):
-        super(InvalidNumberFormat, self).__init__(message)
-        self.token = token
+    pass
+    # def __init__(self, message, token):
+    #    super(InvalidNumberFormat, self).__init__(message)
+    #    self.token = token

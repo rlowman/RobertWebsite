@@ -7,9 +7,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		h1 {
+			font-family: "Impact", cursive;
+		}
+		hr.headerBreak {
+			width : 30%;
+			height: 1px;
+		}
+	</style>
 </head>
 <body>
-  <h1>Projects</h1>
+	<hr class="headerBreak">
+	<h1 align = "center">Projects</h1>
+	<hr class="headerBreak">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -18,11 +29,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Website of Robert Lowman</a>
+        <a class="navbar-brand" href="index">Website of Robert Lowman</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/polls/">Home</a></li>
+          <li><a href="index">Home</a></li>
           <li><a href="#">About</a></li>
           <li class = "active"><a href="projects.html">Projects</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -31,22 +42,22 @@
     </div>
   </nav>
 
-	<title>Projects</title>
-
-<div class='container-fluid'>
-	<h2>Polish Notiation Calculator</h2>
-	<form class="form_inline" method="POST" action="/polls/projects/">
-			<div class="form_group">
-			{% csrf_token %}
-			{{ form }}
-			<button type="submit">Submit</button>
-		</div>
-	</form>
-</div>
+	<div class='container-fluid'>
+		<h2>Polish Notiation Calculator</h2>
+		<form class="form_inline" method="POST" action="/projects/">
+				<div class="form_group">
+				{% csrf_token %}
+				{{ form }}
+				<button type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
 
 		{% if result %}
 			<p>{{ result }}</p>
 		{% endif %}
+
+<hr width="80%" size="8" align="center">
 
 </body>
 </html>

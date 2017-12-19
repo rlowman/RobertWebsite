@@ -6,6 +6,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from forms import RotaluclacForm
+from rotaluclac.calculate import *
+from rotaluclac.exceptions import InvalidSymbolError, InvalidNumberFormat, InvalidEquationError
 
 
 def index(request):
@@ -17,11 +19,21 @@ def projects(request):
         if form.is_valid():
             cd = form.cleaned_data
             equation = cd['equation']
-            result = equation + "$"
-            return render(request, 'polls/projects.html', {'result': result, 'form':form})
+            try:
+                result = solve(equation)
+                return render(request, 'index/projects.html', {'result': result, 'form':form})
+            except InvalidSymbolError:
+                # TODO error message
+                return HttpResponse("Error")
+            except InvalidNumberFormat:
+                # TODO error message
+                return HttpResponse("Error")
+            except InvalidEquationError:
+                # TODO error message
+                return HttpResponse("error")
     else:
         form = RotaluclacForm()
-    return render(request, 'polls/projects.html', {'form':form})
+    return render(request, 'index/projects.html', {'form':form})
 
 def contact(request):
-    return render_to_response(request, 'polls/contact.html')
+    return render_to_response(request, 'index/contact.html')
