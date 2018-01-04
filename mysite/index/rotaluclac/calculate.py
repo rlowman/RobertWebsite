@@ -27,7 +27,7 @@ def solve(postfixEqn):
             except InvalidNumberFormat:
                 valid = False
                 raise
-    index += 1
+        index += 1
     done = False
     index = 0
     stack = []
@@ -39,11 +39,11 @@ def solve(postfixEqn):
                     # TODO factorial function
                     first = stack.pop()
                 else:
-                    if not stack:
+                    if len(stack) == 0:
                         raise InvalidEquationError("Too many operators")
                     else:
-                        first = stack.pop()
-                        second = stack.pop()
+                        arg1 = stack.pop()
+                        arg2 = stack.pop()
                         result = 0
                         if token == '+':
                             result = arg2 + arg1
@@ -57,7 +57,7 @@ def solve(postfixEqn):
                             result = arg2 ^ arg1
                         else:
                             result = arg2 % arg1
-                            stack.append(result)
+                        stack.append(result)
             else:
                 stack.append(token)
         if len(stack) == 0:
@@ -79,7 +79,7 @@ def validateToken(theToken):
         base = 2
     elif theToken.startswith('0o'):
         base = 8
-    elif startswith(theToken, '0x'):
+    elif theToken.startswith('0x'):
         base = 16
     else:
         base = 10
@@ -89,4 +89,4 @@ def validateToken(theToken):
             result = result * -1
         return result
     except ValueError:
-        raise InvalidNumberFormat(theToken)
+        raise InvalidNumberFormat("the message",theToken)

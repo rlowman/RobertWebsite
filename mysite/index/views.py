@@ -22,15 +22,12 @@ def projects(request):
             try:
                 result = solve(equation)
                 return render(request, 'index/projects.html', {'result': result, 'form':form})
-            except InvalidSymbolError:
-                # TODO error message
-                return HttpResponse("Error")
-            except InvalidNumberFormat:
-                # TODO error message
-                return HttpResponse("Error")
-            except InvalidEquationError:
-                # TODO error message
-                return HttpResponse("error")
+            except InvalidSymbolError as ise:
+                return render(request, 'index/projects.html', {'form':form, 'symbolError':ise})
+            except InvalidNumberFormat as inf:
+                return render(request, 'index/projects.html', {'form':form, 'formatError':inf})
+            except InvalidEquationError as iee:
+                return render(request, 'index/projects.html', {'form':form, 'equationError':iee})
     else:
         form = RotaluclacForm()
     return render(request, 'index/projects.html', {'form':form})
