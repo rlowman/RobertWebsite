@@ -6,6 +6,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
+		body{
+			background-color: #ff9980;
+		}
 		h1 {
 			font-family: "Impact", cursive;
 		}
@@ -67,36 +70,43 @@
 		<form method="POST" action="/projects/">
 			{% csrf_token %}
 			<div class = "row">
-				<div class = "col-md-5">
-					<b>{{ form.base.label }}</b>
-					{{ form.base }}
-					<div class = "form-inline">
+				<div class = "col-md-6 text-left">
+					<div class = "row">
+						<div class = "col-md-6">
+							<b>{{ form.base.label }}</b>
+							{{ form.base }}
+						</div>
+						<div class = "col-md-6 text-right">
+							<b>{{ form.notation.label }}</b>
+							{{ form.notation }}
+						</div>
+					</div>
+					<div class = "form-inline text-center">
 						{{ form.equation }}
 						<button type="submit">Submit</button>
 					</div>
+					<br>
+					<b>Answer: {{ result|default:"" }}</b>
+					{% if error %}
+						<b>{{ error.message }}</b>
+					{% endif %}
 				</div>
 				<br class="adjuster">
-				<div class = "col-md-7">
-					<b>{{ form.notation.label }}</b>
-					{{ form.notation }}
-					<div class="container-fluid">
+				<div class = "col-md-5">
+					<div class="text-center">
+						<br class="adjuster">
   					<button	type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">More Information</button>
   					<div id="demo" class="collapse">
-    					<p></p>
+    					<p>Designing, building, and testing a polish/reverse-polish notation calulator
+							was one of my first major projects in the field of software development. While
+							it may seem simple and reinvent-the-wheel in a sense, featuring it in my personal
+							website has allowed me to learn the first steps in creating a web-based python application.
+							For more information on polish/reverso polish notation, click <a href = "www.wiki.c2.com/?PolishNotation">Here</a></p>
   					</div>
 					</div>
 				</div>
 			</div>
 		</form>
-		<br>
-		<b>Answer: {{ result|default:"" }}</b>
-		{% if equationError %}
-			<p>This Equation cannot be solved</p>
-		{% elif formatError %}
-			<p>{{formatError.token}} is wrong</p>
-		{% elif invalidSymbol %}
-			<p>An invalid symbol was given</p>
-		{% endif %}
 </div>
 
 	<hr class=projectBreak>

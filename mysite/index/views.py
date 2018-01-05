@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.template import loader
 from forms import RotaluclacForm
 from rotaluclac.calculate import *
-from rotaluclac.exceptions import InvalidSymbolError, InvalidNumberFormat, InvalidEquationError
+from rotaluclac.exceptions import UnsolvableEquationError
 
 
 def index(request):
@@ -19,15 +19,24 @@ def projects(request):
         if form.is_valid():
             cd = form.cleaned_data
             equation = cd['equation']
+            base = cd['base']
+            notation = cd['notation']
             try:
-                result = solve(equation)
+                result = ""
+                if notation == "polish":
+                    result = solvePostFix(equation)
+                else:
+                    result = solveInFix(equation)
+                if base == 'binary':
+                    result = '0b' + str(int(result,2))
+                elif base == 'octal':
+                    result = '0o' + str(int(result,8))
+                elif base == 'hexadecimal':
+                    result = '0x' + str(int(result,16))
                 return render(request, 'index/projects.html', {'result': result, 'form':form})
-            except InvalidSymbolError as ise:
-                return render(request, 'index/projects.html', {'form':form, 'symbolError':ise})
-            except InvalidNumberFormat as inf:
-                return render(request, 'index/projects.html', {'form':form, 'formatError':inf})
-            except InvalidEquationError as iee:
-                return render(request, 'index/projects.html', {'form':form, 'equationError':iee})
+            except UnsolvableEquationError as error:
+                return render(request, 'index/projects.html', {'form':form, 'error':error})
+
     else:
         form = RotaluclacForm()
     return render(request, 'index/projects.html', {'form':form})

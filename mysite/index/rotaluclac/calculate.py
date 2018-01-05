@@ -1,4 +1,4 @@
-from exceptions import InvalidSymbolError, InvalidEquationError, InvalidNumberFormat
+from exceptions import UnsolvableEquationError
 
 validOperators = ['+', '-', '/', '!',
                   '*', '%', '^']
@@ -11,24 +11,32 @@ allValidSymbols = ['0', '1', '2', '3',
                    '*', '%', '^', 'b',
                    'x', 'o']
 
-def solve(postfixEqn):
+def solveInFix(infixEqn):
+    pass
+
+def solvePostFix(postfixEqn):
     eq = postfixEqn.split()
-    valid = True
+    invalidSymbols = []
     index = 0
+    valid = True
     for temp in eq:
         for char in temp:
             if char not in allValidSymbols:
-                raise InvalidSymbolError(char)
+                invalidSymbols.append(char)
                 valid = False
         if valid:
             try:
                 if temp not in validOperators:
                     eq[index] = validateToken(temp)
-            except InvalidNumberFormat:
+            except UnsolvableEquationError:
                 valid = False
                 raise
         index += 1
-    done = False
+    if len(invalidSymbols) > 0:
+        message = "The following symbols cannot be read: "
+        for c in invalidSymbols:
+            message = message + c
+        raise UnsolvableEquationError(message)
     index = 0
     stack = []
     if valid:
@@ -40,7 +48,7 @@ def solve(postfixEqn):
                     first = stack.pop()
                 else:
                     if len(stack) == 0:
-                        raise InvalidEquationError("Too many operators")
+                        raise UnsolvableEquationError("This equation contains too many operators")
                     else:
                         arg1 = stack.pop()
                         arg2 = stack.pop()
@@ -61,9 +69,9 @@ def solve(postfixEqn):
             else:
                 stack.append(token)
         if len(stack) == 0:
-            raise InvalidEquationError("Too many operators")
+            raise UnsolvableEquationError("This equation contains too many operators")
         elif len(stack) > 1:
-            raise InvalidEquationError("Too many operands")
+            raise UnsolvableEquationError("This equation contains too many operands")
         else:
             printString = stack.pop()
             return printString
@@ -89,4 +97,5 @@ def validateToken(theToken):
             result = result * -1
         return result
     except ValueError:
-        raise InvalidNumberFormat("the message",theToken)
+        message = theToken + " was declared in base " + str(base) + ",\n however a symbol was not recognized in this base"
+        raise UnsolvableEquationError(message)
