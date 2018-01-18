@@ -11,11 +11,8 @@ allValidSymbols = ['0', '1', '2', '3',
                    '*', '%', '^', 'b',
                    'x', 'o']
 
-def solveInFix(infixEqn):
-    pass
-
-def solvePostFix(postfixEqn):
-    eq = postfixEqn.split()
+def equationSplit(eqn):
+    eq = eqn.split()
     invalidSymbols = []
     index = 0
     valid = True
@@ -37,6 +34,61 @@ def solvePostFix(postfixEqn):
         for c in invalidSymbols:
             message = message + c
         raise UnsolvableEquationError(message)
+    return eq
+
+def solveInFix(infixEqn):
+    eq = infixEqn
+    valid = True
+    try:
+        eq = equationSplit(eq)
+    except UnsolvableEquationError:
+        valid = False
+        raise
+    index = 0
+    operandStack = []
+    operatorStack = []
+    if valid:
+        pendingOperand = True
+        for token in eq:
+            if token in validOperators:
+                pendingOperand = False
+                operatorStack.append(token)
+            else:
+                operand = token
+                if pendingOperand:
+                    while len(operandStack) > 0:
+                        operator = operatorStack.pop()
+                        if operator == '!':
+                            x = 1
+                        else:
+                            arg1 = operandStack.pop()
+                            if operator == '+':            # Addition
+                                operand = arg1 + operand
+                            elif operator == '-':          # Subtraction
+                                operand = arg1 - operand
+                            elif operator == '/':          # Division
+                                operand = arg1 / operand
+                            elif operator == '*':          # Multiplication
+                                operand = arg1 * operand
+                            elif operator == '^':          # Power
+                                operand = arg1 ^ operand
+                            else:                       # Modulus
+                                operand = arg1 % operand
+                operandStack.append(operand)
+                pendingOperand = True
+        result = operandStack.pop()
+        return result
+
+
+
+def solvePostFix(postfixEqn):
+    eq = postfixEqn
+    valid = True
+    try:
+        eq = equationSplit(eq)
+    except UnsolvableEquationError:
+        valid = False
+        raise
     index = 0
     stack = []
     if valid:
