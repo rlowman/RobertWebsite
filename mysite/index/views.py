@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from django.template import loader
-from forms import RotaluclacForm, CaeserCipherForm
+from forms import RotaluclacForm
 from rotaluclac.calculate import *
 from rotaluclac.exceptions import UnsolvableEquationError
 
@@ -37,7 +37,7 @@ def projects(request):
                         result = '0x' + str(int(result,16))
                     return render(request, 'index/projects.html', {'result': result, 'rotForm':rotForm})
                 except UnsolvableEquationError as error:
-                    pass
+                    return render(request, 'index/projects.html', {'result': result, 'rotForm':rotForm})
     else:
         form = RotaluclacForm()
     return render(request, 'index/projects.html', {'rotForm':rotForm})

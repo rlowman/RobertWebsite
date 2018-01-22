@@ -16,13 +16,13 @@ class RotaluclacForm(forms.Form):
         "placeholder": "Enter Equation Here",
         "size" : "40" }))
 
-class CaeserCipherForm(forms.Form):
-    FUNCTIONCHOICES = [('encrypt', 'Encrypt'),
-                       ('decrypt', 'Decrypt')]
-    function = forms.CharField(widget = forms.Select(choices = FUNCTIONCHOICES))
-    text = forms.CharField(widget = forms.TextInput(attrs={
-        "placeholder": "Plain Text"
-    }))
-    key = forms.CharField(widget = forms.TextInput(attrs={
-        "placeholder": "Key"
-    }))
+# class CaeserCipherForm(forms.Form):
+#     FUNCTIONCHOICES = [('encrypt', 'Encrypt'),
+#                        ('decrypt', 'Decrypt')]
+#     function = forms.CharField(widget = forms.Select(choices = FUNCTIONCHOICES))
+#     text = forms.CharField(widget = forms.TextInput(attrs={
+#         "placeholder": "Plain Text"
+#     }))
+#     key = forms.CharField(widget = forms.TextInput(attrs={
+#         "placeholder": "Key"
+#     }))
