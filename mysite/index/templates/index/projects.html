@@ -112,7 +112,7 @@
 
 	<hr class=projectBreak>
 
-<script src = {% static "js/main.js" %}></script>
+<h2 align="center">JavaScript Cryptographer</h2>
 
 <div class="container">
 	<div class="form-group">
@@ -120,18 +120,27 @@
 		<textarea class="form-control" rows="5" id="cipherText" placeholder="Enter ciphered message here"></textarea>
 		<br class="adjuster">
 		<div class="row text-center">
-			<button onclick="Encrypt()">Encrypt</button>
-			<button onclick="Decrypt()">Decrypt</button>
+			<button onclick="encrypt()">Encrypt</button>
+			<button onclick="decrypt()">Decrypt</button>
 			<select id="cipher" name="cipher" size="1">
 				<option value = "caeser">Caeser</option>
+				<option value = "otp">One-Time Pad (OTP)</option>
 			</select>
+			<b>Shift (Caeser Only): </b>
 			<input type="number" id="shift" min="0" max="25" placeholder="(0-25)">
-			<input type = "text" id="key" size="50" placeholder = "Enter Key Here"></input>
+		</div>
+		<br class="adjuster">
+		<div class="row text-center">
+			<b>Key:</b>
+			<input type = "text" id="key" size = "50" placeholder = "Enter Custom Key Here">
+			<button onclick="randomString()">Create Random Key (OTP)</button>
 		</div>
 		<label for="plainText">Plain Text:</label>
 		<textarea class="form-control" rows="5" id="plainText"></textarea>
 	</div>
 </div>
+
+<script src = {% static "js/main.js" %}></script>
 
 </body>
 </html>
