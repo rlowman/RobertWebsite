@@ -1,9 +1,7 @@
 from django import template
-from django.template.defaultfilters import stringfilter
 
 register = template.Library()
 
 @register.filter
-@stringfilter
-def doit(value):
-    return value + '$'
+def modulo(num):
+    return 9 % num

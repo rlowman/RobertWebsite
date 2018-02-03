@@ -3,12 +3,26 @@
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
-		body{
-			background-color: #ff9980;
+		#projectDiv {
+			border: 1px solid;
+			background-color:LightGray;
+    	box-shadow: 5px 5px 5px #888888;
+			text-align: center;
+		}
+		#sodokuDiv {
+			border: 1px solid;
+			background-color:LightGray;
+    	box-shadow: 5px 5px 5px #888888;
+			text-align: center;
+			width : 500px;
+		}
+		#input {
+			box-shadow: 5px 5px 5px #888888;
 		}
 		h1 {
 			font-family: "Impact", cursive;
@@ -16,10 +30,19 @@
 		h2 {
 			font-family: monospace;
 		}
+		#right {
+			border-right: 1px solid;
+    	height: 140px;
+		}
 		hr.headerBreak {
 			width : 30%;
 			height : 1px;
 			float : "center";
+		}
+		hr.sodokuBreak{
+			margin-top: 2px;
+			margin-bottom: 2px;
+			border-top: 1px solid;
 		}
 		hr.projectBreak {
 			width : 80%;
@@ -66,7 +89,7 @@
     </div>
   </nav>
 
-	<div class = "container-fluid">
+	<div class = "container" id = "projectDiv">
 		<h2 align = "center">Polish Notiation Calculator</h2>
 		<form method="POST" action="/projects/">
 			{% csrf_token %}
@@ -108,13 +131,13 @@
 				</div>
 			</div>
 		</form>
-</div>
+	</div>
 
 	<hr class=projectBreak>
 
 <h2 align="center">JavaScript Cryptographer</h2>
 
-<div class="container">
+<div class="container" id = "projectDiv">
 	<div class="form-group">
 		<label for="cipherText">Cipher Text:</label>
 		<textarea class="form-control" rows="5" id="cipherText" placeholder="Enter ciphered message here"></textarea>
@@ -141,6 +164,185 @@
 </div>
 
 <script src = {% static "js/main.js" %}></script>
+{% csrf_token %}
+<hr class = "projectBreak">
+
+<h2 align = "center">AI Based Sodoku Solver</h2>
+
+<div class = "container" id="sodokuDiv">
+	<form method= "POST" action="/projects/">
+		<h2>
+		<div text-align="center">
+			<div class = "row">
+				<div class = "col-md-4" id="right">
+					<div class = "row">
+						{{board.cellRow0Col0}}
+						{{board.cellRow0Col1}}
+						{{board.cellRow0Col2}}
+					</div>
+					<div class = "row">
+						{{board.cellRow1Col0}}
+						{{board.cellRow1Col1}}
+						{{board.cellRow1Col2}}
+					</div>
+					<div class = "row">
+						{{board.cellRow2Col0}}
+						{{board.cellRow2Col1}}
+						{{board.cellRow2Col2}}
+					</div>
+				</div>
+				<div class = "col-md-4" id="right">
+					<div class = "row">
+						{{board.cellRow0Col3}}
+						{{board.cellRow0Col4}}
+						{{board.cellRow0Col5}}
+					</div>
+					<div class = "row">
+						{{board.cellRow1Col3}}
+						{{board.cellRow1Col4}}
+						{{board.cellRow1Col5}}
+					</div>
+					<div class = "row">
+						{{board.cellRow2Col3}}
+						{{board.cellRow2Col4}}
+						{{board.cellRow2Col5}}
+					</div>
+				</div>
+				<div class = "col-md-4">
+					<div class = "row">
+						{{board.cellRow0Col6}}
+						{{board.cellRow0Col7}}
+						{{board.cellRow0Col8}}
+					</div>
+					<div class = "row">
+						{{board.cellRow1Col6}}
+						{{board.cellRow1Col7}}
+						{{board.cellRow1Col8}}
+					</div>
+					<div class = "row">
+						{{board.cellRow2Col6}}
+						{{board.cellRow2Col7}}
+						{{board.cellRow2Col8}}
+					</div>
+				</div>
+			</div>
+
+			<hr class="sodokuBreak">
+
+			<div class = "row">
+				<div class = "col-md-4" id="right">
+					<div class = "row">
+						{{board.cellRow3Col0}}
+						{{board.cellRow3Col1}}
+						{{board.cellRow3Col2}}
+					</div>
+					<div class = "row">
+						{{board.cellRow4Col0}}
+						{{board.cellRow4Col1}}
+						{{board.cellRow4Col2}}
+					</div>
+					<div class = "row">
+						{{board.cellRow5Col0}}
+						{{board.cellRow5Col1}}
+						{{board.cellRow5Col2}}
+					</div>
+				</div>
+				<div class = "col-md-4" id="right">
+					<div class = "row">
+						{{board.cellRow3Col3}}
+						{{board.cellRow3Col4}}
+						{{board.cellRow3Col5}}
+					</div>
+					<div class = "row">
+						{{board.cellRow4Col3}}
+						{{board.cellRow4Col4}}
+						{{board.cellRow4Col5}}
+					</div>
+					<div class = "row">
+						{{board.cellRow5Col3}}
+						{{board.cellRow5Col4}}
+						{{board.cellRow5Col5}}
+					</div>
+				</div>
+				<div class = "col-md-4">
+					<div class = "row">
+						{{board.cellRow3Col6}}
+						{{board.cellRow3Col7}}
+						{{board.cellRow3Col8}}
+					</div>
+					<div class = "row">
+						{{board.cellRow4Col6}}
+						{{board.cellRow4Col7}}
+						{{board.cellRow4Col8}}
+					</div>
+					<div class = "row">
+						{{board.cellRow5Col6}}
+						{{board.cellRow5Col7}}
+						{{board.cellRow5Col8}}
+					</div>
+				</div>
+			</div>
+
+			<hr class="sodokuBreak">
+
+			<div class = "row">
+				<div class = "col-md-4" id="right">
+					<div class = "row">
+						{{board.cellRow6Col0}}
+						{{board.cellRow6Col1}}
+						{{board.cellRow6Col2}}
+					</div>
+					<div class = "row">
+						{{board.cellRow7Col0}}
+						{{board.cellRow7Col1}}
+						{{board.cellRow7Col2}}
+					</div>
+					<div class = "row">
+						{{board.cellRow8Col0}}
+						{{board.cellRow8Col1}}
+						{{board.cellRow8Col2}}
+					</div>
+				</div>
+				<div class = "col-md-4" id="right">
+					<div class = "row">
+						{{board.cellRow6Col3}}
+						{{board.cellRow6Col4}}
+						{{board.cellRow6Col5}}
+					</div>
+					<div class = "row">
+						{{board.cellRow7Col3}}
+						{{board.cellRow7Col4}}
+						{{board.cellRow7Col5}}
+					</div>
+					<div class = "row">
+						{{board.cellRow8Col3}}
+						{{board.cellRow8Col4}}
+						{{board.cellRow8Col5}}
+					</div>
+				</div>
+				<div class = "col-md-4">
+					<div class = "row">
+						{{board.cellRow6Col6}}
+						{{board.cellRow6Col7}}
+						{{board.cellRow6Col8}}
+					</div>
+					<div class = "row">
+						{{board.cellRow7Col6}}
+						{{board.cellRow7Col7}}
+						{{board.cellRow7Col8}}
+					</div>
+					<div class = "row">
+						{{board.cellRow8Col6}}
+						{{board.cellRow8Col7}}
+						{{board.cellRow8Col8}}
+					</div>
+				</div>
+			</div>
+		</div>
+		</h2>
+		<button type="submit" name = "sodoku">Solve</button>
+	</form>
+</div>
 
 </body>
 </html>
