@@ -164,13 +164,13 @@
 </div>
 
 <script src = {% static "js/main.js" %}></script>
-{% csrf_token %}
 <hr class = "projectBreak">
 
 <h2 align = "center">AI Based Sodoku Solver</h2>
 
 <div class = "container" id="sodokuDiv">
 	<form method= "POST" action="/projects/">
+		{% csrf_token %}
 		<h2>
 		<div text-align="center">
 			<div class = "row">
@@ -340,7 +340,9 @@
 			</div>
 		</div>
 		</h2>
-		<button type="submit" name = "sodoku">Solve</button>
+		<div class = "row">
+			<button type="submit" name = "sodoku">Solve</button>
+			{{board.algorithm}}
 	</form>
 </div>
 

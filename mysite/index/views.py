@@ -6,8 +6,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from forms import RotaluclacForm, SodokuBoard
-from rotaluclac.calculate import *
-from rotaluclac.exceptions import UnsolvableEquationError
+from projects.calculate import *
+from projects.exceptions import UnsolvableEquationError
 
 
 def index(request):
@@ -42,32 +42,14 @@ def projects(request):
                     return render(request, 'index/projects.html', {'result': result, 'rotForm':rotForm, 'board':board})
         elif "sodoku" in request.POST:
             board = SodokuBoard(request.POST)
-            if board.isValid():
-                cd = board.cleaned_data
-                readBoard = readBoard(cd)
-                solvedBoard = sodokuSolve(readBoard)
-                board = SodokuBoard(solvedBoard)
+            if board.is_valid():
+                alg = board.cleaned_data['algorithm']
+                data = solveBoard(board)
+                board = writeBoard(data)
                 return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
     else:
         form = RotaluclacForm()
     return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
-
-def solvedBoard(data):
-    returnBoard = [[]*9 for _ in range(9)]
-    for x in data:
-        for y in data[x]:
-            data[x][y] = data[x][y] + 1
-    return returnBoard
-
-def readBoard(data):
-    getString = 'cellRow*Col*'
-    returnArray = [[]*9 for _ in range(9)]
-    returnArray[0][0] = data[getString]
-    for row in range(9):
-        for col in range(9):
-            getString[7] = row
-            getString[11] = col
-    return returnArray
 
 def contact(request):
     return render_to_response(request, 'index/contact.html')
