@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.template import loader
 from forms import RotaluclacForm, SodokuBoard
 from projects.calculate import *
+from projects.sodoku import solveBacktracking
 from projects.exceptions import UnsolvableEquationError
 
 
@@ -44,8 +45,12 @@ def projects(request):
             board = SodokuBoard(request.POST)
             if board.is_valid():
                 alg = board.cleaned_data['algorithm']
-                data = solveBoard(board)
-                board = writeBoard(data)
+                temp = readBoard(board)
+                data = solveBacktracking(temp)
+                if data:
+                    board = writeBoard(data)
+                else:
+                    print "error"
                 return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
     else:
         form = RotaluclacForm()
@@ -53,3 +58,25 @@ def projects(request):
 
 def contact(request):
     return render_to_response(request, 'index/contact.html')
+
+def readBoard(board):
+    returnValue = []
+    for row in range(9):
+        for col in range(9):
+            getString = getString = "cellRow" + str(row) + "Col" + str(col)
+            temp = board.cleaned_data[getString]
+            if len(temp) > 0:
+                returnValue.append(board.cleaned_data[getString])
+            else:
+                returnValue.append(0)
+    print returnValue
+    return returnValue
+
+def writeBoard(data):
+    returnBoard = SodokuBoard()
+    for row in range(9):
+        for col in range(9):
+            getString = "cellRow" + str(row) + "Col" + str(col)
+            index = (row * 9) + col
+            returnBoard.fields[getString].initial = data.get(str(row + 1) + str(col + 1))
+    return returnBoard

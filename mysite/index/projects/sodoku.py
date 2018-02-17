@@ -3,11 +3,11 @@ def cross(theRows, theCols):
     returnArray = []
     for row in theRows:
         for col in theCols:
-        returnArray.append(row+col)
+            returnArray.append(row+col)
     return returnArray
 
 digits   = '123456789'
-rows     = 'ABCDEFGHI'
+rows     = '123456789'
 cols     = digits
 squares  = cross(rows, cols)
 unitlist = ([cross(rows, c) for c in cols] +
@@ -51,7 +51,7 @@ def eliminate(values, s, d):
     values[s] = values[s].replace(d,'')
     ## (1) If a square s is reduced to one value d2, then eliminate d2 from the peers.
     if len(values[s]) == 0:
-	return False ## Contradiction: removed last value
+	       return False ## Contradiction: removed last value
     elif len(values[s]) == 1:
         d2 = values[s]
         if not all(eliminate(values, s2, d2) for s2 in peers[s]):
@@ -84,16 +84,7 @@ def some(seq):
         if e: return e
     return False
 
-def writeBoard(data):
-    returnBoard = SodokuBoard()
-    for row in range(9):
-        for col in range(9):
-            getString = getString = "cellRow" + str(row) + "Col" + str(col)
-            returnBoard.fields[getString].initial = data[row][col]
-    return returnBoard
-
-def solveBacktracking(board):
-    data = [] * 81
-
-
-    return returnArray
+def solveBacktracking(data):
+    temp = search(parse_grid(str(data)))
+    print temp
+    return temp

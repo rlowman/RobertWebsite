@@ -10,27 +10,60 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
     #welcome{
-      background-color: #4b4b4b;
-      height: 200px;
-      vertical-align: top;
-      margin-top: 0px;
+      background: rgba(222, 215, 195, 1);
+      height: 400px;
+      align-items: center;
+      width:100%;
+      display:flex;
+      justify-content: center;
     }
-    .navbar .navbar-collapse {
+
+    .main-heading{
+      font-size: 70px;
       text-align: center;
+      margin-top: 0;
+      vertical-align: middle;
     }
-    body{
-      background-color: #00c8ff;
-      margin-top: 0px;
+    .btn-custom {
+      font-size: 36px;
+      border-radius: 4px;
+      border-width: 1px;
     }
-
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
+    .btn-custom.projects {
+      background: rgba(176, 14, 46, 1);
+      border-color: rgba(204, 204, 204, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+    .btn-custom.contact {
+      background: rgba(255, 0, 51, 1);
+      border-color: rgba(204, 204, 204, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+    .btn-custom.about {
+      background: rgba(255, 0, 51, 1);
+      border-color: rgba(204, 204, 204, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+    .btn-custom.projects:hover {
+      background: rgba(255, 255, 255, 1);
+      border-color: rgba(255, 0, 0, 1);
+      color: rgba(255, 0, 0, 1);
+    }
+    .btn-custom.contact:hover {
+      background: rgba(255, 0, 51, 1);
+      border-color: rgba(204, 204, 204, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+    .btn-custom.about:hover {
+      background: rgba(255, 0, 51, 1);
+      border-color: rgba(204, 204, 204, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+    .btn-projects:active,
+    .btn-projects:focus {
+      background: rgba(235, 235, 235, 1);
+      border-color: rgba(173, 173, 173, 1);
+      color: rgba(51, 51, 51, 1);
     }
 
     /* Set black background color, white text and some padding */
@@ -40,50 +73,37 @@
       padding: 15px;
     }
 
-    hr.welcome {
+    hr.name {
       width : 90%;
 			align : "center"
     }
-
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;}
+    p.summary {
+      text-align: center;
+      font:
+      font-size: 20px;
     }
   </style>
 </head>
-<body>
-<!-- <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Website of Robert Lowman</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-center">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="projects">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
+
+<div id = "welcome">
+  <div>
+    <h1 class = "main-heading">Robert Lowman</h1>
+    <hr class = "name"></hr>
+    <p class = "summary">Coder. Creator. Innovator.</p>
   </div>
-</nav> -->
-<div id="welcome">
-  <h2 align="center">Welcome</h2>
-  <hr class="welcome">
 </div>
 
-
-
-
+<div class = "row text-center">
+  <div class = "col-md-4 text-center">
+    <a href="projects.html" class="btn btn-custom projects" role="button">Projects</a>
+  </div>
+  <div class = "col-md-4 text-center">
+    <a href="about.html" class="btn btn-about" role="button">About Me</a>
+  </div>
+  <div class = "col-md-4 text-center">
+    <a href="contact.html" class="btn btn-contact" role="button">Contact</a>
+  </div>
+</div>
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
 </footer>
