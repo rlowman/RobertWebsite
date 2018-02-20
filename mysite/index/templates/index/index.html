@@ -18,6 +18,31 @@
       justify-content: center;
     }
 
+    #projectDiv {
+      background:rgba(176, 14, 46, .15);
+    }
+    #aboutDiv {
+      background: rgba(55, 45, 247, .15);
+    }
+    #contactDiv {
+      background: rgba(37, 184, 0, .15);
+    }
+
+    .hvr-grow-rotate {
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px transparent;
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-property: transform;
+      transition-property: transform;
+    }
+    .hvr-grow-rotate:hover, .hvr-grow-rotate:focus, .hvr-grow-rotate:active {
+      -webkit-transform: scale(1.1) rotate(4deg);
+      transform: scale(1.1) rotate(4deg);
+    }
     .main-heading{
       font-size: 70px;
       text-align: center;
@@ -28,35 +53,19 @@
       font-size: 36px;
       border-radius: 4px;
       border-width: 1px;
+      margin-top: 25px;
+      margin-bottom: 25px;
     }
     .btn-custom.projects {
       background: rgba(176, 14, 46, 1);
-      border-color: rgba(204, 204, 204, 1);
       color: rgba(255, 255, 255, 1);
     }
     .btn-custom.contact {
-      background: rgba(255, 0, 51, 1);
-      border-color: rgba(204, 204, 204, 1);
+      background: rgba(37, 184, 0, 1);
       color: rgba(255, 255, 255, 1);
     }
     .btn-custom.about {
-      background: rgba(255, 0, 51, 1);
-      border-color: rgba(204, 204, 204, 1);
-      color: rgba(255, 255, 255, 1);
-    }
-    .btn-custom.projects:hover {
-      background: rgba(255, 255, 255, 1);
-      border-color: rgba(255, 0, 0, 1);
-      color: rgba(255, 0, 0, 1);
-    }
-    .btn-custom.contact:hover {
-      background: rgba(255, 0, 51, 1);
-      border-color: rgba(204, 204, 204, 1);
-      color: rgba(255, 255, 255, 1);
-    }
-    .btn-custom.about:hover {
-      background: rgba(255, 0, 51, 1);
-      border-color: rgba(204, 204, 204, 1);
+      background: rgba(55, 45, 247, 1);
       color: rgba(255, 255, 255, 1);
     }
     .btn-projects:active,
@@ -75,33 +84,102 @@
 
     hr.name {
       width : 90%;
-			align : "center"
+			align : "center";
+      margin-top: 0px;
+      margin-bottom: 0px;
     }
-    p.summary {
+    h4.second {
       text-align: center;
       font:
       font-size: 20px;
     }
+
+
+
+/*=== Trigger  ===*/
+.animate {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/*=== Optional Delays, change values here  ===*/
+.one {
+-webkit-animation-delay: 1s;
+-moz-animation-delay: 1s;
+animation-delay: 1s;
+}
+
+.two {
+-webkit-animation-delay: 2s;
+-moz-animation-delay: 2s;
+animation-delay: 2s;
+}
+
+.three {
+-webkit-animation-delay: 3s;
+-moz-animation-delay: 3s;
+animation-delay: 3s;
+}
+
+/*=== Animations start here  ===*/
+/*=== FADE IN  ===*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
   </style>
 </head>
-
+<body>
 <div id = "welcome">
   <div>
     <h1 class = "main-heading">Robert Lowman</h1>
     <hr class = "name"></hr>
-    <p class = "summary">Coder. Creator. Innovator.</p>
+    <div class = "row">
+      <div class = "col-md-4">
+        <h4 class = "second animate fadeIn one">Coder.</h4>
+      </div>
+      <div class = "col-md-4">
+        <h4 class = "second animate fadeIn two">Creator.</h4>
+      </div>
+      <div class = "col-md-4">
+        <h4 class = "second animate fadeIn three">Innovator.</h4>
+      </div>
+    </div>
+    <hr class = "name"></hr>
   </div>
 </div>
 
 <div class = "row text-center">
-  <div class = "col-md-4 text-center">
-    <a href="projects.html" class="btn btn-custom projects" role="button">Projects</a>
+  <div class = "col-md-4 text-center" id = "projectDiv">
+    <a href="/projects" class="btn btn-custom projects hvr-grow-rotate" role="button">Projects</a>
   </div>
-  <div class = "col-md-4 text-center">
-    <a href="about.html" class="btn btn-about" role="button">About Me</a>
+  <div class = "col-md-4 text-center" id = "aboutDiv">
+    <a href="about.html" class="btn btn-custom about hvr-grow-rotate" role="button">About Me</a>
   </div>
-  <div class = "col-md-4 text-center">
-    <a href="contact.html" class="btn btn-contact" role="button">Contact</a>
+  <div class = "col-md-4 text-center" id = "contactDiv">
+    <a href="contact.html" class="btn btn-custom contact hvr-grow-rotate" role="button">Contact</a>
   </div>
 </div>
 <footer class="container-fluid text-center">

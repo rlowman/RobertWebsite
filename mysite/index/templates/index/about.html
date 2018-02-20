@@ -1,33 +1,75 @@
 <html>
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static 'static/style.css' %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      h3.brand {
+        color: rgba(248, 248, 248, 1);
+        margin-top: 10px;
+      }
+    
+      #custom-bootstrap-menu.navbar-default .navbar-brand {
+        color: rgba(119, 119, 119, 1);
+      }
+      #custom-bootstrap-menu.navbar-default {
+          font-size: 18px;
+          background-color: rgba(176, 14, 46, 1);
+          border-bottom-width: 1px;
+      }
+      #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+          color: rgba(240, 235, 235, 1);
+          background-color: rgba(248, 248, 248, 0);
+      }
+      #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+      #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+          color: rgba(176, 14, 46, 1);
+          background-color: rgba(248, 248, 248, 1);
+      }
+      #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+      #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+      #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+          color: rgba(176, 14, 46, 1);
+          background-color: rgba(231, 231, 231, 1);
+      }
+      #custom-bootstrap-menu.navbar-default .navbar-toggle {
+          border-color: #ddd;
+      }
+      #custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+      #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+          background-color: #ddd;
+      }
+      #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+          background-color: #888;
+      }
+      #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+      #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+          background-color: #b00e2e;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
+    <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index">Website of Robert Lowman</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
+  			<div class="navbar-header">
+  				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  				</button>
+  				<h3 class = "brand">About Me</h3>
+  			</div>
+        <div class="collapse navbar-collapse navbar-menubuilder" id ="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li class = "active"><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
+  					<li><a href="/">Home</a></li>
+  					<li><a href="/about">About</a></li>
+  					<li class = "active"><a href="/projects">Projects</a></li>
+  					<li><a href = "/contact">Contact</a></li>
           </ul>
         </div>
       </div>
-    </nav>
+  	</div>
   </body>
 </html>

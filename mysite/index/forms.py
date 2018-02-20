@@ -8,7 +8,8 @@ class RotaluclacForm(forms.Form):
     NOTATIONCHOICES = [('polish', 'Polish Notation'),
                        ('reverse', 'Reverse Polish Notation')]
     notation = forms.CharField(label = "Select the Notation: ",
-                               widget = forms.Select(choices = NOTATIONCHOICES))
+                               widget = forms.Select(attrs={"class" : "selectpicker"},
+                               choices = NOTATIONCHOICES))
     base = forms.ChoiceField(label = "Select Base for Answer: ", choices=CHOICES,
                              initial = 'decimal',
                              widget=forms.RadioSelect())

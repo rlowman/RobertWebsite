@@ -57,7 +57,10 @@ def projects(request):
     return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
 
 def contact(request):
-    return render_to_response(request, 'index/contact.html')
+    return render(request, 'index/contact.html')
+
+def about(request):
+    return render(request, 'index/about.html')
 
 def readBoard(board):
     returnValue = []
