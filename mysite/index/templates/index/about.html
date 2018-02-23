@@ -1,3 +1,4 @@
+{% load static from staticfiles %}
 <html>
   <head>
     <meta charset="utf-8">
@@ -6,32 +7,58 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
+      body {
+        margin-top: 75px;
+      }
       h3.brand {
-        color: rgba(248, 248, 248, 1);
+        color: white;
         margin-top: 10px;
       }
-    
-      #custom-bootstrap-menu.navbar-default .navbar-brand {
-        color: rgba(119, 119, 119, 1);
+      h2.skills {
+        text-align: center;
       }
+      h2.intro {
+        text-align: center;
+        margin-bottom: 40px
+      }
+      hr.head {
+        width: 50%;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        background-color: rgba(55, 45, 247, 1);
+      }
+      h1.title {
+        text-align: center;
+        font-size: 60px;
+        margin-top: 0px;
+      }
+      img.profile {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        box-shadow: 5px 5px 5px #888888;
+      }
+
       #custom-bootstrap-menu.navbar-default {
-          font-size: 18px;
-          background-color: rgba(176, 14, 46, 1);
-          border-bottom-width: 1px;
+        font-size: 18px;
+        background: rgba(55, 45, 247, 1);
+        border-bottom-width: 1px;
+        color: white;
       }
       #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-          color: rgba(240, 235, 235, 1);
+          color: white;
           background-color: rgba(248, 248, 248, 0);
       }
       #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
       #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-          color: rgba(176, 14, 46, 1);
+          color: rgba(55, 45, 247, 1);
           background-color: rgba(248, 248, 248, 1);
       }
       #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
       #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
       #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-          color: rgba(176, 14, 46, 1);
+          color: rgba(55, 45, 247, 1);
           background-color: rgba(231, 231, 231, 1);
       }
       #custom-bootstrap-menu.navbar-default .navbar-toggle {
@@ -48,6 +75,34 @@
       #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
           background-color: #b00e2e;
       }
+
+      .tablink {
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 33.33%;
+    }
+
+    .tablink:hover {
+        background-color: #777;
+    }
+
+    /* Style the tab content (and add height:100% for full page content) */
+    .tabcontent {
+        color: white;
+        display: none;
+        padding: 100px 20px;
+        height: 100%;
+    }
+
+    #skills {background-color: red;}
+    #life {background-color: green;}
+    #website {background-color: blue;}
     </style>
   </head>
   <body>
@@ -64,12 +119,72 @@
         <div class="collapse navbar-collapse navbar-menubuilder" id ="myNavbar">
           <ul class="nav navbar-nav navbar-right">
   					<li><a href="/">Home</a></li>
-  					<li><a href="/about">About</a></li>
-  					<li class = "active"><a href="/projects">Projects</a></li>
+  					<li class = "active"><a href="/about">About</a></li>
+  					<li><a href="/projects">Projects</a></li>
   					<li><a href = "/contact">Contact</a></li>
           </ul>
         </div>
       </div>
   	</div>
+
+    <div class = "row">
+      <div class = "col-md-5">
+        <img class = "profile img-rounded" src="{% static "images/prof pic.jpeg" %}" alt="My image"/>
+      </div>
+      <div class = "container-fluid col-md-5">
+        <h2 class="skills">Welcome, I'm Robert.</h2>
+        <hr>
+        <p class = "about">However you can call me by my middle name, Craig. I am a graduate from King's College
+          of Pennslyvannia with a bachelor's degree in Computer Science. After graduating, I developed this website
+          using Python 2.7 and Django web framework to showcase my abilities as well as previous projects that I have
+          developed during my time at King's.</p>
+
+
+      </div>
+    </div>
+
+      <h2 class ="intro">What would you like to learn about me?</h2>
+
+      <button class="tablink" onclick="openPage('skills', this, 'red')">My Skills/Experience</button>
+      <button class="tablink" onclick="openPage('life', this, 'green')" id="defaultOpen">My Background</button>
+      <button class="tablink" onclick="openPage('website', this, 'blue')">This Website</button>
+
+      <div id="skills" class="tabcontent container-fluid">
+      <h3>Skills I Bring to the Table</h3>
+      <p class = "about">While studying computer science, I have gained an extensive amount of knowledge in software development concepts
+        such as code reviews, source control, testing, and pair-programming. As a developer, I am excited
+        to learn new strategies and techniques that can overall improve my code's readabily or efficiency. A main focus of this
+        website was to overall increase my knowledge of python-based web applications, and this website have given me the oppurtunity
+        to master the vigorous Django framework.</p>
+      </div>
+
+      <div id="life" class="tabcontent">
+      <h3>The Story of Robert Lowman III</h3>
+      <p>Some news this fine day!</p>
+      </div>
+
+      <div id="website" class="tabcontent">
+      <h3>Website Information</h3>
+      <p>Get in touch, or swing by for a cup of coffee.</p>
+      </div>
+
+      <script>
+        function openPage(pageName,elmnt,color) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].style.backgroundColor = "";
+          }
+          document.getElementById(pageName).style.display = "block";
+          elmnt.style.backgroundColor = color;
+        }
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+
   </body>
 </html>
