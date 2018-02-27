@@ -94,13 +94,14 @@
 
     /* Style the tab content (and add height:100% for full page content) */
     .tabcontent {
-        color: white;
-        display: none;
-        padding: 100px 20px;
-        height: 100%;
+      color: white;
+      display: none;
     }
 
-    #skills {background-color: red;}
+    #skills {
+      background-color: red;
+      margin-bottom: 150px;
+    }
     #life {background-color: green;}
     #website {background-color: blue;}
     </style>
@@ -135,11 +136,12 @@
         <h2 class="skills">Welcome, I'm Robert.</h2>
         <hr>
         <p class = "about">However you can call me by my middle name, Craig. I am a graduate from King's College
-          of Pennslyvannia with a bachelor's degree in Computer Science. After graduating, I developed this website
-          using Python 2.7 and Django web framework to showcase my abilities as well as previous projects that I have
-          developed during my time at King's.</p>
-
-
+          of Pennslyvannia with a bachelor's degree in Computer Science. Currently, I live in Rock Hall, Maryland,
+          however will be moving to the Philadelphia area in June. Currently, I work at Budget Blinds of Chestertown
+          as a window shade installer but am looking for a full-time position as a software developer. Feel free to view
+          a more detailed summary of my skills and background below or visit the contact section of my website to ask me
+          any questions.
+        </p>
       </div>
     </div>
 
@@ -150,22 +152,79 @@
       <button class="tablink" onclick="openPage('website', this, 'blue')">This Website</button>
 
       <div id="skills" class="tabcontent container-fluid">
-      <h3>Skills I Bring to the Table</h3>
-      <p class = "about">While studying computer science, I have gained an extensive amount of knowledge in software development concepts
-        such as code reviews, source control, testing, and pair-programming. As a developer, I am excited
-        to learn new strategies and techniques that can overall improve my code's readabily or efficiency. A main focus of this
-        website was to overall increase my knowledge of python-based web applications, and this website have given me the oppurtunity
-        to master the vigorous Django framework.</p>
+        <h3>Skills I Bring to the Table</h3>
+        <p class = "about"> While studying computer science, I have gained an extensive amount of knowledge in software
+          development concepts such as code reviews, source control, testing, and pair-programming. As a developer,
+          I am excited to learn new strategies and techniques that can overall improve my code's readability or efficiency.
+          Most of my work has been written in object-oriented languages, therefore I am strongest and have the most experience
+          with such languages. Writing code in a Linux-based environment is a main focus of King's computer science curriculum,
+          so development on Linux operating systems is most natural to me. With the experience I have from working in a team to
+          build software, I have learned the importance of writing code that is readable and efficient. I would consider myself
+          a stickler for proper format and commenting to ensure that other people can easily understand the code I have written.
+        </p>
+        <div class = "row">
+          <div class = "col-md-3">
+            <h3>Backend Languages</h3>
+            <ul>
+              <li>Java (Advanced)</li>
+              <li>Python 2.7/3 (Advanced)</li>
+              <li>PostgreSQL (Advanced)
+              <li>C/C++ (Intermediate)</li>
+              <li>NodeJS (Intermediate)</li>
+              <li>Ruby (Beginner)</li>
+              <li>PHP (Beginner)</li>
+              <li>OpenCL (Beginner)</li>
+            </ul>
+          </div>
+          <div class = "col-md-3">
+            <h3>Front End Languages</h3>
+            <ul>
+              <li>HTML5/CSS3 (Advanced)</li>
+              <li>JavaScript (Intermediate)</li>
+              <li>jQuery (Beginner)</li>
+            </ul>
+          </div>
+          <div class = "col-md-3">
+            <h3>Notable Courses</h3>
+            <ul>
+              <li>Data Structures</li>
+              <li>Artificial Intelligence</li>
+              <li>Operating Systems</li>
+              <li>Parallelism</li>
+              <li>Image Processing</li>
+              <li>Database and Web Design</li>
+              <li>Search Engines</li>
+            </ul>
+          </div>
+          <div class = "col-md-3">
+            <h3>Software</h3>
+            <ul>
+              <li>Eclipse</li>
+              <li>GitHub</li>
+              <li>JUnit</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <div id="life" class="tabcontent">
-      <h3>The Story of Robert Lowman III</h3>
-      <p>Some news this fine day!</p>
+      <div id="life" class="tabcontent container-fluid">
+        <h3>The Story of Robert Lowman III</h3>
+        <p>Born in Chestertown, Maryland, I grew up being strong in math and science. While in high school, I played
+        both lacrosse and football and loved being a student athlete. </p>
+        <p>After graduating from Kent County High School,
+        I decided to take my talents both on the lacrosse field and in the classroom to King's College in Wilkes-Barre Pennslyvania.
+        Originally being a Computer Information Systems major, I was required to take an introduction to programming
+        course. Even though this course was the first time I had ever seen code,I was very successful in this class and
+        realized my true potential as a coder. After speaking with my progfessor, I decided to change majors to Computer Science
+        to focus on coding and development, and have enjoyed the field ever since.</p>
       </div>
 
-      <div id="website" class="tabcontent">
-      <h3>Website Information</h3>
-      <p>Get in touch, or swing by for a cup of coffee.</p>
+      <div id="website" class="tabcontent container-fluid">
+        <h3>Website Information</h3>
+        <p>After graduating, I developed this website using Python 2.7 and Django web framework to showcase my abilities
+          as well as previous projects that I have developed during my time at King's. Creating this website from scratch
+          has given me experience in web development skills such as building input forms with Django's widget features, working
+          with view pages to connect server-side and client-side properties, .</p>
       </div>
 
       <script>
