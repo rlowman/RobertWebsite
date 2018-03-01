@@ -10,7 +10,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
     #welcome{
-      background: rgba(222, 215, 195, 1);
       height: 400px;
       align-items: center;
       width:100%;
@@ -18,61 +17,27 @@
       justify-content: center;
     }
 
-    #projectDiv {
-      background:rgba(176, 14, 46, .15);
-    }
-    #aboutDiv {
-      background: rgba(55, 45, 247, .15);
-    }
-    #contactDiv {
-      background: rgba(37, 184, 0, .15);
+    .inside {
+      background-color: rgba(0, 0, 0, .50);
+      border-radius: 10px;
     }
 
-    .hvr-grow-rotate {
-      display: inline-block;
-      vertical-align: middle;
-      -webkit-transform: perspective(1px) translateZ(0);
-      transform: perspective(1px) translateZ(0);
-      box-shadow: 0 0 1px transparent;
-      -webkit-transition-duration: 0.3s;
-      transition-duration: 0.3s;
-      -webkit-transition-property: transform;
-      transition-property: transform;
+    #projectDiv {
+      background:rgba(176, 14, 46, .25);
     }
-    .hvr-grow-rotate:hover, .hvr-grow-rotate:focus, .hvr-grow-rotate:active {
-      -webkit-transform: scale(1.1) rotate(4deg);
-      transform: scale(1.1) rotate(4deg);
+    #aboutDiv {
+      background: rgba(55, 45, 247, .25);
     }
+    #contactDiv {
+      background: rgba(37, 184, 0, .25);
+    }
+
     .main-heading{
       font-size: 70px;
       text-align: center;
       margin-top: 0;
       vertical-align: middle;
-    }
-    .btn-custom {
-      font-size: 36px;
-      border-radius: 4px;
-      border-width: 1px;
-      margin-top: 25px;
-      margin-bottom: 25px;
-    }
-    .btn-custom.projects {
-      background: rgba(176, 14, 46, 1);
-      color: rgba(255, 255, 255, 1);
-    }
-    .btn-custom.contact {
-      background: rgba(37, 184, 0, 1);
-      color: rgba(255, 255, 255, 1);
-    }
-    .btn-custom.about {
-      background: rgba(55, 45, 247, 1);
-      color: rgba(255, 255, 255, 1);
-    }
-    .btn-projects:active,
-    .btn-projects:focus {
-      background: rgba(235, 235, 235, 1);
-      border-color: rgba(173, 173, 173, 1);
-      color: rgba(51, 51, 51, 1);
+      color: white;
     }
 
     /* Set black background color, white text and some padding */
@@ -80,6 +45,18 @@
       background-color: #555;
       color: white;
       padding: 15px;
+      margin-bottom: 0px;
+    }
+    body {
+      background-image: url({% static "images/indexBackground.jpg" %});
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position:top;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     hr.name {
@@ -88,72 +65,116 @@
       margin-top: 0px;
       margin-bottom: 0px;
     }
+    hr.name.bottom {
+      margin-bottom: 20px;
+    }
     h4.second {
       text-align: center;
-      font:
       font-size: 20px;
+      color: white;
+    }
+    h2.buttons {
+      margin-top: 5px;
     }
 
+    /*=== Trigger  ===*/
+    .animate {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
 
+    /*=== Optional Delays, change values here  ===*/
+    .one {
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+    }
 
-/*=== Trigger  ===*/
-.animate {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
+    .two {
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
+    }
 
-/*=== Optional Delays, change values here  ===*/
-.one {
--webkit-animation-delay: 1s;
--moz-animation-delay: 1s;
-animation-delay: 1s;
-}
+    .three {
+    -webkit-animation-delay: 3s;
+    -moz-animation-delay: 3s;
+    animation-delay: 3s;
+    }
 
-.two {
--webkit-animation-delay: 2s;
--moz-animation-delay: 2s;
-animation-delay: 2s;
-}
+    /*=== Animations start here  ===*/
+    /*=== FADE IN  ===*/
+    @-webkit-keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
 
-.three {
--webkit-animation-delay: 3s;
--moz-animation-delay: 3s;
-animation-delay: 3s;
-}
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
 
-/*=== Animations start here  ===*/
-/*=== FADE IN  ===*/
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+      to {
+        opacity: 1;
+      }
+    }
 
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+    .fadeIn {
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+    }
 
-  to {
-    opacity: 1;
-  }
-}
+    .btn-custom {
+      color: white;
+      font-size: 18px;
+      border-radius: 8px;
+      border-width: 1px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .btn-custom.projects {
+      background: rgba(176, 14, 46, 1);
+    }
+    .btn-custom.about {
+      background-color: rgba(55, 45, 247, 1);
+    }
+    .btn-custom.contact {
+      background: rgba(37, 184, 0, 1);
+    }
+    .btn-custom:active, .btn-custom:focus {
+      background: rgba(235, 235, 235, 1);
+      border-color: rgba(173, 173, 173, 1);
+      color: rgba(51, 51, 51, 1);
+    }
+    /* Grow */
+    .hvr-grow {
+      display: inline-block;
+      vertical-align: middle;
+      transform: translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      backface-visibility: hidden;
+      -moz-osx-font-smoothing: grayscale;
+      transition-duration: 0.3s;
+      transition-property: transform;
+    }
 
-.fadeIn {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-}
-
+    .hvr-grow:hover,
+    .hvr-grow:focus,
+    .hvr-grow:active {
+      transform: scale(1.1);
+      color: white;
+    }
   </style>
 </head>
 <body>
 <div id = "welcome">
-  <div>
+  <div class = "container-fluid inside">
     <h1 class = "main-heading">Robert Lowman</h1>
     <hr class = "name"></hr>
     <div class = "row">
@@ -167,50 +188,39 @@ animation-delay: 3s;
         <h4 class = "second animate fadeIn three">Innovator.</h4>
       </div>
     </div>
-    <hr class = "name"></hr>
+    <hr class = "name bottom"></hr>
   </div>
 </div>
 
-<!-- <div class = "row text-center">
-  <div class = "col-md-4 text-center" id = "projectDiv">
-    <a href="/projects" class="btn btn-custom projects hvr-grow-rotate" role="button">Projects</a>
+<div class = "row text-center">
+  <div class = "col-md-4 text-center container-fluid" id = "projectDiv">
+    <a href="/projects" class="btn btn-custom projects hvr-grow" role="button">
+      <h2 class = "buttons">Projects</h2>
+      <p>Dive into coding projects</p>
+      <p>that I wrote throughout my</p>
+      <p>different classes at King's.</p>
+      <p>These projects really showcase</p>
+      <p>my strengths as well as my</p>
+      <p>weaknesses as a developer.</p>
+    </a>
   </div>
   <div class = "col-md-4 text-center" id = "aboutDiv">
-    <a href="/about" class="btn btn-custom about hvr-grow-rotate" role="button">About Me</a>
+    <a href="/about" class="btn btn-custom about hvr-grow" role="button">
+      <h2 class = "buttons">About Me</h2>
+      <p>View all of my skills and</p>
+      <p>experiences as a developer.</p>
+      <p>Learn about different techniques</p>
+      <p>and topics that I covered and</p>
+      <p>mastered during my undergrad at</p>
+      <p>King's</p>
+    </a>
   </div>
   <div class = "col-md-4 text-center" id = "contactDiv">
-    <a href="/contact" class="btn btn-custom contact hvr-grow-rotate" role="button">Contact</a>
+    <a href="/contact" class="btn btn-custom contact hvr-grow" role="button">
+      <h2 class = "buttons">Contact Me</h2>
+      <p>
+    </a>
   </div>
-</div> -->
-
-<div class = "row text-center">
-  <a href="/projects">
-    <div class = "col-md-4 text-center" id = "projectDiv">
-      <h2>Projects</h2>
-      <p>this</p>
-      <p>is</p>
-      <p>a</p>
-      <p>test</p>
-    </div>
-  </a>
-  <a href="/contact">
-    <div class = "col-md-4 text-center" id = "contactDiv">
-      <h2>Projects</h2>
-      <p>this</p>
-      <p>is</p>
-      <p>a</p>
-      <p>test</p>
-    </div>
-  </a>
-  <a href="/about">
-    <div class = "col-md-4 text-center" id = "aboutDiv">
-      <h2>Projects</h2>
-      <p>this</p>
-      <p>is</p>
-      <p>a</p>
-      <p>test</p>
-    </div>
-  </a>
 </div>
 
 <footer class="container-fluid text-center">
