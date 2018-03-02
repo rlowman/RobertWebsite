@@ -1,3 +1,5 @@
+from exceptions import UnsolvableEquationError
+
 def cross(theRows, theCols):
     "Cross product of elements in A and elements in B."
     returnArray = []
@@ -86,5 +88,7 @@ def some(seq):
 
 def solveBacktracking(data):
     temp = search(parse_grid(str(data)))
-    print temp
-    return temp
+    if not temp:
+        raise UnsolvableEquationError("This board is not able to be solved.")
+    else:
+        return temp

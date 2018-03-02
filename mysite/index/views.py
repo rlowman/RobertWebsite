@@ -40,7 +40,7 @@ def projects(request):
                         result = '0x' + str(int(result,16))
                     return render(request, 'index/projects.html', {'result': result, 'rotForm':rotForm, 'board':board})
                 except UnsolvableEquationError as error:
-                    return render(request, 'index/projects.html', {'result': result, 'rotForm':rotForm, 'board':board})
+                    return render(request, 'index/projects.html', {'result': result, 'rotForm':rotForm, 'board':board, 'error':error})
         elif "sodoku" in request.POST:
             board = SodokuBoard(request.POST)
             if board.is_valid():
@@ -50,7 +50,7 @@ def projects(request):
                 if data:
                     board = writeBoard(data)
                 else:
-                    print "error"
+                    print error;
                 return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
     else:
         form = RotaluclacForm()

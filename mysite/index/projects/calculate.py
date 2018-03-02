@@ -57,23 +57,26 @@ def solveInFix(infixEqn):
                 operand = token
                 if pendingOperand:
                     while len(operandStack) > 0:
-                        operator = operatorStack.pop()
-                        if operator == '!':
-                            x = 1
+                        if len(operatorStack) > 0:
+                            operator = operatorStack.pop()
+                            if operator == '!':
+                                x = 1
+                            else:
+                                arg1 = operandStack.pop()
+                                if operator == '+':            # Addition
+                                    operand = arg1 + operand
+                                elif operator == '-':          # Subtraction
+                                    operand = arg1 - operand
+                                elif operator == '/':          # Division
+                                    operand = arg1 / operand
+                                elif operator == '*':          # Multiplication
+                                    operand = arg1 * operand
+                                elif operator == '^':          # Power
+                                    operand = arg1 ^ operand
+                                else:                       # Modulus
+                                    operand = arg1 % operand
                         else:
-                            arg1 = operandStack.pop()
-                            if operator == '+':            # Addition
-                                operand = arg1 + operand
-                            elif operator == '-':          # Subtraction
-                                operand = arg1 - operand
-                            elif operator == '/':          # Division
-                                operand = arg1 / operand
-                            elif operator == '*':          # Multiplication
-                                operand = arg1 * operand
-                            elif operator == '^':          # Power
-                                operand = arg1 ^ operand
-                            else:                       # Modulus
-                                operand = arg1 % operand
+                            raise UnsolvableEquationError("This equation contains too many operators.")
                 operandStack.append(operand)
                 pendingOperand = True
         result = operandStack.pop()
