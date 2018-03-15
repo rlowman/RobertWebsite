@@ -1,17 +1,6 @@
-function encrypt(){
-	var cipherFunction = document.getElementById("cipher").value;
-	var plainText = document.getElementById("plainText").value.toLowerCase();
-	var cipherText = plainText
-	if(cipherFunction == "caeser"){
-		cipherText = caeserEncrypt(plainText);
-	}
-	else if(cipherFunction == "otp"){
-		cipherText = otpEncrypt(plainText);
-	}
-	document.getElementById("cipherText").value = cipherText;
-}
-
-function caeserEncrypt(text){
+// Encrypts the user-given plain-text using a Caeser cipher
+function caeserEncrypt(){
+	var text = document.getElementById("caeserPlainText").value.toLowerCase();
 	if(text.length < 1){
 		alert("There was no plain text inserted.");
 	}
@@ -26,11 +15,13 @@ function caeserEncrypt(text){
 				result += text.charAt(i);
 			}
 		}
-		return result;
+		document.getElementById("caeserCipherText").value = result;
 	}
 }
 
-function otpEncrypt(text){
+// Encrypts the user-given plain-text using a One Time Pad cipher
+function otpEncrypt(){
+	var text = document.getElementById("otpPlainText").value.toLowerCase();
 	if(text.length < 1){
 		alert("There was no plain text inserted.");
 	}
@@ -48,24 +39,13 @@ function otpEncrypt(text){
 				result += text.charAt(i);
 			}
 		}
-		return result;
+		document.getElementById("otpCipherText").value = result;
 	}
 }
 
-function decrypt(){
-	var cipherFunction = document.getElementById("cipher").value;
-	var cipherText = document.getElementById("cipherText").value.toLowerCase();
-	var plainText = cipherText
-	if(cipherFunction == "caeser"){
-		plainText = caeserDecrypt(cipherText);
-	}
-	else if (cipherFunction == "otp"){
-		plainText = otpDecrypt(cipherText);
-	}
-	document.getElementById("plainText").value = plainText;
-}
-
-function caeserDecrypt(cipherText){
+// Decrypts the user-given cipher-text using a caeser decipher
+function caeserDecrypt(){
+	var cipherText = document.getElementById("caeserCipherText").value.toLowerCase();
 	if(cipherText.length < 1) {
 		alert("please enter some ciphertext (letters only)");
 	}
@@ -81,11 +61,13 @@ function caeserDecrypt(cipherText){
 					 result += cipherText.charAt(i);
 				 }
 		 }
-		 return result;
+		 document.getElementById("caeserPlainText").value = result;
 	 }
 }
 
-function otpDecrypt(cipherText){
+// Decrypts the user-given cipher-text using a One Time Pad decipher
+function otpDecrypt(){
+	var cipherText = document.getElementById("otpCipherText").value.toLowerCase();
 	if(cipherText.length < 1) {
 		alert("please enter some ciphertext (letters only)");
 	}
@@ -107,10 +89,16 @@ function otpDecrypt(cipherText){
 					 result += cipherText.charAt(i);
 				 }
 		 }
-		 return result;
+		 document.getElementById("otpPlainText").value = result;
 	 }
 }
 
+/*
+Creates a pseudo-random string for One Time Pad encryption
+NOTICE: This does not create a truely-random pad that is required for a true
+One Time Pad cipher. Also, this key should be deleted after decryption to ensure
+full secrecy.
+*/
 function randomString() {
 	var chars = "abcdefghijklmnopqrstuvwxyz";
 	var randomstring = "";
@@ -121,4 +109,25 @@ function randomString() {
 		randomstring += chars.substring(rnum,rnum+1);
 	}
 	document.getElementById("key").value = randomstring;
+}
+
+function openCipher(evt, cipher) {
+	// Declare all variables
+	var i, tabcontent, tablinks;
+
+	// Get all elements with class="tabcontent" and hide them
+	tabcontent = document.getElementsByClassName("tabcontent");
+	for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+	}
+
+	// Get all elements with class="tablinks" and remove the class "active"
+	tablinks = document.getElementsByClassName("tablinks");
+	for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+	}
+
+	// Show the current tab, and add an "active" class to the button that opened the tab
+	document.getElementById(cipher).style.display = "block";
+	evt.currentTarget.className += " active";
 }

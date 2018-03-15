@@ -5,11 +5,10 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from django.template import loader
-from forms import RotaluclacForm, SodokuBoard
-from projects.calculate import *
-from projects.sodoku import solveBacktracking
-from projects.exceptions import UnsolvableEquationError
-
+from .forms import RotaluclacForm, SodokuBoard
+from .projects.calculate import *
+from .projects.sodoku import solveBacktracking
+from .projects.exceptions import UnsolvableEquationError
 
 def index(request):
     return render(request, 'index/index.html')
@@ -50,7 +49,7 @@ def projects(request):
                 if data:
                     board = writeBoard(data)
                 else:
-                    print error;
+                    print(error)
                 return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
     else:
         form = RotaluclacForm()
@@ -72,7 +71,7 @@ def readBoard(board):
                 returnValue.append(board.cleaned_data[getString])
             else:
                 returnValue.append(0)
-    print returnValue
+    print(returnValue)
     return returnValue
 
 def writeBoard(data):

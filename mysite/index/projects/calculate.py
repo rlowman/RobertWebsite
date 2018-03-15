@@ -1,4 +1,4 @@
-from exceptions import UnsolvableEquationError
+from .exceptions import UnsolvableEquationError
 
 validOperators = ['+', '-', '/', '!',
                   '*', '%', '^']
@@ -16,6 +16,8 @@ def equationSplit(eqn):
     invalidSymbols = []
     index = 0
     valid = True
+    # Checks all symbols in given equation to ensure no invalid symbols were
+    # passed
     for temp in eq:
         for char in temp:
             if char not in allValidSymbols:
@@ -37,6 +39,10 @@ def equationSplit(eqn):
     return eq
 
 def solveInFix(infixEqn):
+    """Solves the given equation in infixNotation, or polish notation.
+    Will throw an Unsolvable Equations Error for equations that are not
+    in proper polish notiation
+    """
     eq = infixEqn
     valid = True
     try:
@@ -82,9 +88,11 @@ def solveInFix(infixEqn):
         result = operandStack.pop()
         return result
 
-
-
 def solvePostFix(postfixEqn):
+    """Solves the given equation in infixNotation, or polish notation.
+    Will throw an Unsolvable Equations Error for equations that are not
+    in proper polish notiation
+    """
     eq = postfixEqn
     valid = True
     try:

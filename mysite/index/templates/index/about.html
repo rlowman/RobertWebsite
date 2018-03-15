@@ -1,4 +1,4 @@
-{% load static from staticfiles %}
+{% load staticfiles %}
 <html>
   <head>
     <meta charset="utf-8">
@@ -60,13 +60,13 @@
         color: white;
       }
       #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-          color: white;
-          background-color: rgba(248, 248, 248, 0);
+        color: white;
+        background-color: rgba(248, 248, 248, 0);
       }
       #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
       #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-          color: rgba(55, 45, 247, 1);
-          background-color: rgba(248, 248, 248, 1);
+        color: rgba(55, 45, 247, 1);
+        background-color: white;
       }
       #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
       #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
@@ -166,117 +166,116 @@
       </div>
     </div>
 
-      <h2 class ="intro">What would you like to learn about me?</h2>
+    <h2 class ="intro">What would you like to learn about me?</h2>
 
-      <div class = "row text-center">
-        <div class = "col-md-4 text-center">
-          <button class="btn btn-custom projects hvr-grow-rotate" onclick="openPage('skills', this)" id="defaultOpen">My Skills/Experience</button>
+    <div class = "row text-center">
+      <div class = "col-md-4 text-center">
+        <button class="btn btn-custom projects hvr-grow-rotate" onclick="openPage('skills', this)" id="defaultOpen">My Skills/Experience</button>
+      </div>
+      <div class = "col-md-4 text-center">
+        <button class="btn btn-custom projects hvr-grow-rotate" onclick="openPage('life', this)">My Background</button>
+      </div>
+      <div class = "col-md-4 text-center">
+        <button class="btn btn-custom projects hvr-grow-rotate" onclick="openPage('website', this)">This Website</button>
+      </div>
+    </div>
+
+    <hr class = "buttons">
+
+    <div id="skills" class="tabcontent container-fluid">
+      <h3>Skills I Bring to the Table</h3>
+      <p class = "about"> While studying computer science, I have gained an extensive amount of knowledge in software
+        development concepts such as code reviews, source control, testing, and pair-programming. As a developer,
+        I am excited to learn new strategies and techniques that can overall improve my code's readability or efficiency.
+        Most of my work has been written in object-oriented languages, therefore I am strongest and have the most experience
+        with such languages. Writing code in a Linux-based environment is a main focus of King's computer science curriculum,
+        so development on Linux operating systems is most natural to me. With the experience I have from working in a team to
+        build software, I have learned the importance of writing code that is readable and efficient. I would consider myself
+        a stickler for proper format and commenting to ensure that other people can easily understand the code I have written.
+      </p>
+      <div class = "row">
+        <div class = "col-md-3">
+          <h3>Backend Languages</h3>
+          <ul>
+            <li>Java (Advanced)</li>
+            <li>Python 2.7/3 (Advanced)</li>
+            <li>PostgreSQL (Advanced)
+            <li>C/C++ (Intermediate)</li>
+            <li>NodeJS (Intermediate)</li>
+            <li>Ruby (Beginner)</li>
+            <li>PHP (Beginner)</li>
+            <li>OpenCL (Beginner)</li>
+          </ul>
         </div>
-        <div class = "col-md-4 text-center">
-          <button class="btn btn-custom projects hvr-grow-rotate" onclick="openPage('life', this)">My Background</button>
+        <div class = "col-md-3">
+          <h3>Front End Languages</h3>
+          <ul>
+            <li>HTML5/CSS3 (Advanced)</li>
+            <li>JavaScript (Intermediate)</li>
+            <li>jQuery (Beginner)</li>
+          </ul>
         </div>
-        <div class = "col-md-4 text-center">
-          <button class="btn btn-custom projects hvr-grow-rotate" onclick="openPage('website', this)">This Website</button>
+        <div class = "col-md-3">
+          <h3>Notable Courses</h3>
+          <ul>
+            <li>Data Structures</li>
+            <li>Artificial Intelligence</li>
+            <li>Operating Systems</li>
+            <li>Parallelism</li>
+            <li>Image Processing</li>
+            <li>Database and Web Design</li>
+            <li>Search Engines</li>
+          </ul>
+        </div>
+        <div class = "col-md-3">
+          <h3>Software</h3>
+          <ul>
+            <li>Eclipse</li>
+            <li>GitHub</li>
+            <li>JUnit</li>
+          </ul>
         </div>
       </div>
+    </div>
 
-      <hr class = "buttons">
-
-      <div id="skills" class="tabcontent container-fluid">
-        <h3>Skills I Bring to the Table</h3>
-        <p class = "about"> While studying computer science, I have gained an extensive amount of knowledge in software
-          development concepts such as code reviews, source control, testing, and pair-programming. As a developer,
-          I am excited to learn new strategies and techniques that can overall improve my code's readability or efficiency.
-          Most of my work has been written in object-oriented languages, therefore I am strongest and have the most experience
-          with such languages. Writing code in a Linux-based environment is a main focus of King's computer science curriculum,
-          so development on Linux operating systems is most natural to me. With the experience I have from working in a team to
-          build software, I have learned the importance of writing code that is readable and efficient. I would consider myself
-          a stickler for proper format and commenting to ensure that other people can easily understand the code I have written.
-        </p>
-        <div class = "row">
-          <div class = "col-md-3">
-            <h3>Backend Languages</h3>
-            <ul>
-              <li>Java (Advanced)</li>
-              <li>Python 2.7/3 (Advanced)</li>
-              <li>PostgreSQL (Advanced)
-              <li>C/C++ (Intermediate)</li>
-              <li>NodeJS (Intermediate)</li>
-              <li>Ruby (Beginner)</li>
-              <li>PHP (Beginner)</li>
-              <li>OpenCL (Beginner)</li>
-            </ul>
-          </div>
-          <div class = "col-md-3">
-            <h3>Front End Languages</h3>
-            <ul>
-              <li>HTML5/CSS3 (Advanced)</li>
-              <li>JavaScript (Intermediate)</li>
-              <li>jQuery (Beginner)</li>
-            </ul>
-          </div>
-          <div class = "col-md-3">
-            <h3>Notable Courses</h3>
-            <ul>
-              <li>Data Structures</li>
-              <li>Artificial Intelligence</li>
-              <li>Operating Systems</li>
-              <li>Parallelism</li>
-              <li>Image Processing</li>
-              <li>Database and Web Design</li>
-              <li>Search Engines</li>
-            </ul>
-          </div>
-          <div class = "col-md-3">
-            <h3>Software</h3>
-            <ul>
-              <li>Eclipse</li>
-              <li>GitHub</li>
-              <li>JUnit</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div id="life" class="tabcontent container-fluid">
-        <h3>The Story of Robert Lowman III</h3>
-        <p>On October 15th, 1995 I was born in Chestertown, Maryland to my parents Dale Lowman and Karen Lowman (Zimmerman).
+    <div id="life" class="tabcontent container-fluid">
+      <h3>The Story of Robert Lowman III</h3>
+      <p class = "about">On October 15th, 1995 I was born in Chestertown, Maryland to my parents Dale Lowman and Karen Lowman (Zimmerman).
         Growing up, I excelled in the sujects math and science. Alongside with focusing on my schoolwork I played
         both lacrosse and football and loved being a student athlete.</p>
-        <p>After graduating from Kent County High School, I decided to take my talents both on the lacrosse field and in the
+      <p class = "about">After graduating from Kent County High School, I decided to take my talents both on the lacrosse field and in the
         classroom to King's College in Wilkes-Barre Pennslyvania. Originally being a Computer Information Systems major, I was
         required to take an introduction to programming course. Even though this course was the first time I had ever seen code,
         I was very successful in this class and realized my true potential as a coder. After speaking with my progfessor, I
         decided to change majors to Computer Science to focus on coding and development, and have enjoyed the field ever since.</p>
-        <p>When I am not writing code or researching topics in the field, you can find me on the ski mountain with my friends.
+      <p class = "about">When I am not writing code or researching topics in the field, you can find me on the ski mountain with my friends.
         If it is during summer and there is no snow on the ground, I love to go out on the Chesapeake Bay and fish or wakeboard.
         Other hobbies of mine include attending EDM and rap concerts, and traveling with my friends.</p>
-        <p>In 5-10 years, I can vision myself being a full-stack developer who is very experienced in the field. While I plan to live
+      <p class = "about">In 5-10 years, I can vision myself being a full-stack developer who is very experienced in the field. While I plan to live
         in the Philadelphia area for a couple of years, I would love to move out west to the mountains and be able to ski on a larger scale
         more often. Feel free to visit the contact section of my website to ask me any questions.</p>
-      </div>
+    </div>
 
-      <div id="website" class="tabcontent container-fluid">
-        <h3>Website Information</h3>
-        <p>After graduating, I developed this website using Python 2.7 and Django web framework to showcase my abilities
-          as well as previous projects that I have developed during my time at King's. Creating this website from scratch
-          has given me experience in web development skills such as building input forms with Django's widget features, working
-          with view pages to connect server-side and client-side properties, utilizing google developer API's, and much more.</p>
-      </div>
+    <div id="website" class="tabcontent container-fluid">
+      <h3>Website Information</h3>
+      <p class = "about">After graduating, I developed this website using Python 2.7 and Django web framework to showcase my abilities
+        as well as previous projects that I have developed during my time at King's. Creating this website from scratch
+        has given me experience in web development skills such as building input forms with Django's widget features, working
+        with view pages to connect server-side and client-side properties, utilizing google developer API's, and much more.</p>
+    </div>
 
-      <script>
-        function openPage(pageName,elmnt,color) {
-          var i, tabcontent, tablinks;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-              tabcontent[i].style.display = "none";
-          }
-          document.getElementById(pageName).style.display = "block";
-          elmnt.style.backgroundColor = color;
+    <script>
+      function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
         }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+      }
       // Get the element with id="defaultOpen" and click on it
       document.getElementById("defaultOpen").click();
     </script>
-
   </body>
 </html>

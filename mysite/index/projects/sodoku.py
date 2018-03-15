@@ -1,4 +1,4 @@
-from exceptions import UnsolvableEquationError
+from .exceptions import UnsolvableEquationError
 
 def cross(theRows, theCols):
     "Cross product of elements in A and elements in B."
@@ -60,10 +60,10 @@ def eliminate(values, s, d):
             return False
     ## (2) If a unit u is reduced to only one place for a value d, then put it there.
     for u in units[s]:
-	dplaces = [s for s in u if d in values[s]]
-	if len(dplaces) == 0:
+        dplaces = [s for s in u if d in values[s]]
+    if len(dplaces) == 0:
 	    return False ## Contradiction: no place for this value
-	elif len(dplaces) == 1:
+    elif len(dplaces) == 1:
 	    # d can only be in one place in unit; assign it there
             if not assign(values, dplaces[0], d):
                 return False
