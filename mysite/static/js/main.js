@@ -43,6 +43,96 @@ function otpEncrypt(){
 	}
 }
 
+function railFenceGroupDefault(text) {
+	var groups = parseInt(document.getElementById("groups").value);
+	if (!(groups > 1 && groups <= (text.length + 1)/2)) {
+		groups = 3;
+		document.getElementById("groupError").value = "Rail Fence count invalid; setting the amout of fences to 3."
+	}
+	return groups;
+}
+
+function railFenceDisplacementDefault(text, groups) {
+	var displacement = parseInt(document.getElementById("displacement").value);
+	if (!(displacement >= 0 && displacement <= ((2 * groups) - 2))) {
+		displacement = 0;
+		document.getElementById("displacementError").value = "Rail Fence count invalid; setting the amout of fences to 3."
+	}
+	return displacement;
+}
+
+// All valid symobls that can be included in cipher
+var validSymbols = ["a", "b", "c", "d", "e", "f",
+										"g", "h", "i", "j", "k", "l",
+										"m", "n", "o", "p", "q", "r",
+										"s", "t", "u", "v", "w", "x",
+										"y", "z", " "]
+
+function railfenceEncrypt() {
+	// Retrieve necessary data from document
+	var text = document.getElementById("railfencePlainText").value;
+	var groups = railFenceGroupDefault(text);
+	var displacement = railFenceDisplacementDefault(text, groups);
+	var unreadSymbols = new Set();
+	var direction = 1;
+	var adjuster;
+	var cipherText = "";
+	var cipherFencePost	= new Array(groups);
+	var cipherIncrement	= 0;
+
+	// Set all fences to default value
+	for (i = 0; i < cipherFencePost.length; i++) {
+		cipherFencePost[i] = "";
+	}
+
+	// Find proper stating point
+	if ((displacement - groups) < 0) {
+		adjuster = displacement;
+	}
+	else {
+		adjuster = (groups - 2 - (displacement % groups));
+		direction *= -1;
+	}
+	cipherIncrement = displacement;
+	for (i = 0; i < text.length; i++) {
+		var current = text.charAt(i);
+		if (validSymbols.indexOf(current) != -1) {
+			cipherFencePost[adjuster] += current;
+			if (adjuster > 1) {
+				if (cipherIncrement % (groups - 1) == 0 && i != 0) {
+					direction *= -1;
+				}
+			}
+			else if (adjuster < 1 && direction == -1) {
+				direction *= -1;
+			}
+			adjuster += direction;
+			cipherIncrement++;
+		}
+		else {
+			unreadSymbols.add(current);
+		}
+	}
+	for (i = 0; i < cipherFencePost.length; i++) {
+		cipherText += cipherFencePost[i];
+	}
+	if(unreadSymbols.size > 0) {
+		var errorString = "The following symbols cannot be read: ";
+		const iter = unreadSymbols.entries();
+		var index = 0;
+		for (let item of iter) {
+			if(index == unreadSymbols.size - 1) {
+				errorString += current;
+			}
+			else {
+				errorString = errorString + current + ", ";
+			}
+		}
+		document.getElementById("unreadSymbols").innerHTML = errorString;
+	}
+	document.getElementById("railfenceCipherText").value = cipherText;
+}
+
 // Decrypts the user-given cipher-text using a caeser decipher
 function caeserDecrypt(){
 	var cipherText = document.getElementById("caeserCipherText").value.toLowerCase();
@@ -77,20 +167,139 @@ function otpDecrypt(){
 		var re = /[a-z]/;
 		var keyIndex = 0;
 		for(i=0; i < cipherText.length; i++){
-				 if(re.test(cipherText.charAt(i))){
-					 var code = cipherText.charCodeAt(i) - key.charCodeAt(keyIndex);
-					 if (code < 0){
-						 code += 26;
-					 }
-					 result += String.fromCharCode((code % 26) + 97);
-					 keyIndex ++;
+				if(re.test(cipherText.charAt(i))){
+				 var code = cipherText.charCodeAt(i) - key.charCodeAt(keyIndex);
+				 if (code < 0){
+					 code += 26;
 				 }
-				 else {
-					 result += cipherText.charAt(i);
-				 }
+				 result += String.fromCharCode((code % 26) + 97);
+				 keyIndex ++;
+			 }
+			 else {
+				 result += cipherText.charAt(i);
+			 }
 		 }
 		 document.getElementById("otpPlainText").value = result;
 	 }
+}
+
+// Decrypts the user-given cipher-text using a Rail Fence decipher
+function railfenceDecrypt() {
+	// Set up variables
+	var plainText = "";
+	var cipherText = document.getElementById("railfenceCipherText").value.toLowerCase();
+	var groups = railFenceGroupDefault(cipherText);
+	var displacement = railFenceDisplacementDefault(cipherText, groups);
+	var direction = 1;
+	var dir = true;
+	var adjuster = displacement;
+	var decipherIndex	= 0;
+	var displacementIndex	= 0;
+	var groupSubStringElements = new Array(groups);
+	var subStringLengths	= new Array(groups);
+	var arrayElementCharacterCount = new Array(groups);
+	var begin	= 0;
+	var finish	= 0;
+	var segment = 0;
+	var assignMultiple = true;
+
+	// Initialize groupSubStringElements
+	for (i = 0; i < groups; i++) {
+		groupSubStringElements[i] = "";
+	}
+	// Initialize subStringElementLengths
+	for (i = 0; i < groups; i++) {
+		subStringLengths[i] = "";
+	}
+
+	// Initialize arrayElementCharacterCount
+	for (i = 0; i < groups; i++) {
+		arrayElementCharacterCount[i] = 0;
+	}
+	if ((displacement - groups) < 0) {
+		slither = displacement;
+	}
+	else {
+		segment = groups - 2 - (displacement % groups);
+		assignMultiple = false;
+	}
+	for (i = displacement; i < (cipherText.length + displacement); i++) {
+		subStringLengths[segment]++;
+		if (segment > 1) {
+			if (i % (groups - 1) == 0) {
+				assignMultiple = !(assignMultiple);
+			}
+		}
+		else {
+			if (segment < 1 && !(assignMultiple)) {
+				assignMultiple = true;
+			}
+		}
+		if (assignMultiple) {
+			segment++;
+		}
+		else {
+			segment--;
+		}
+		displacementIndex++;
+	}
+
+	// Extract the substrings from cipherText
+	for (i = 0; i < groups; i++) {
+		finish += subStringLengths[i];
+		groupSubStringElements[i] = cipherText.substring(begin, finish);
+		begin	= finish;
+	}
+
+	// Set a starting point according
+	// to the value of displacement
+	if (displacement - groups < 0) {
+		adjuster = displacement;
+	}
+	else {
+		adjuster = (groups - 2 - (displacement % groups));
+		dir = !(dir);
+	}
+	decipherIndex = displacement;
+
+	// Assign the characters of groupSubStringElements to plainText
+	for (i = 0; i < cipherText.length; i++) {
+		if (validSymbols.indexOf(cipherText.charAt(i)) != -1) {
+			plainText += groupSubStringElements[adjuster].charAt(arrayElementCharacterCount[adjuster]);
+			arrayElementCharacterCount[adjuster]++;
+			if (adjuster > 1) {
+				if (decipherIndex % (groups - 1) == 0) {
+					dir = !(dir)
+				}
+			}
+			else {
+				if (adjuster < 1 && !(dir)) {
+					dir = !(dir)
+				}
+			}
+			if (dir) {
+				adjuster++;
+			}
+			else {
+				adjuster--;
+			}
+			decipherIndex++;
+		}
+	}
+	if(unreadSymbols.length > 0) {
+		var errorString = "The following symbols cannot be read: "
+		for(i = 0; i < unreadSymbols.length; i++) {
+			var current = unreadSymbols[i];
+			if(i == unreadSymbols.length - 1) {
+				errorString += current;
+			}
+			else {
+				errorString = errorString + current + ", ";
+			}
+		}
+		document.getElementById("unreadSymbols").value = errorString;
+	}
+	document.getElementById("railfencePlainText").value = plainText;
 }
 
 /*
@@ -111,6 +320,7 @@ function randomString() {
 	document.getElementById("key").value = randomstring;
 }
 
+// Opens the selected cipher tool
 function openCipher(evt, cipher) {
 	// Declare all variables
 	var i, tabcontent, tablinks;

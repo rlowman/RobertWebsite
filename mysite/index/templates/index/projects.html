@@ -10,13 +10,6 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 		<style>
-			/* Style the tab */
-			.tab {
-				overflow: hidden;
-				border: 1px solid #ccc;
-				background-color: #f1f1f1;
-			}
-
 			/* Style the tab content */
 			.tabcontent {
 				display: none;
@@ -30,7 +23,7 @@
 				text-align: center;
 				background-color: LightGray;
 				padding-top: 10px;
-				padding-bottom: 20px;
+				padding-bottom: 10px;
 			}
 			#sodokuDiv {
 				border: 1px solid;
@@ -103,6 +96,7 @@
 	    	cursor: pointer;
 				padding-left: 25px;
 				padding-right: 25px;
+				margin-bottom: 5px;
 			}
 			.project-form.tabs {
 				height: 50px;
@@ -176,9 +170,9 @@
 	    	color: rgba(119, 119, 119, 1);
 			}
 			#custom-bootstrap-menu.navbar-default {
-			    font-size: 18px;
-			    background-color: rgba(176, 14, 46, 1);
-			    border-bottom-width: 1px;
+			  font-size: 18px;
+			  background-color: rgba(176, 14, 46, 1);
+			  border-bottom-width: 1px;
 			}
 			#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
 			    color: rgba(240, 235, 235, 1);
@@ -347,7 +341,7 @@
 			<div id="railfence" class="tabcontent">
 				<div class="form-group">
 					<label for="cipherText">Cipher Text:</label>
-					<textarea class="form-control" rows="5" id="cipherText" placeholder="Enter ciphered message here"></textarea>
+					<textarea class="form-control" rows="5" id="railfenceCipherText" placeholder="Enter ciphered message here"></textarea>
 					<br class="adjuster">
 					<div class="row text-center">
 						<button class="project-form submit hvr-grow" onclick="railfenceEncrypt()">Encrypt</button>
@@ -356,15 +350,18 @@
 					<br class="adjuster">
 					<div class="row text-center">
 						<b>Number of Rails:</b>
-						<input type="number" id="shift" min="0" max="25" placeholder="Enter Rail Count">
+						<input type="number" id="groups" min="0" max="25" placeholder="Enter Rail Count">
 						&nbsp;
 						<b>Displacement:</b>
-						<input type="number" id="shift" min="0" max="25" placeholder="Enter Displacement">
+						<input type="number" id="displacement" min="0" max="25" placeholder="Enter Displacement">
 					</div>
 					<div>
 						<label for="plainText">Plain Text:</label>
-						<textarea class="form-control" rows="5" id="plainText"></textarea>
+						<textarea class="form-control" rows="5" id="railfencePlainText"></textarea>
 					</div>
+					<b id="groupError"></b>
+					<b id="displacementError"></b>
+					<b id="unreadSymbols"></b>
 				</div>
 			</div>
 		</div>
