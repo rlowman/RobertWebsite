@@ -211,18 +211,19 @@ function railfenceDecrypt() {
 	for (i = 0; i < groups; i++) {
 		subStringLengths[i] = "";
 	}
-
 	// Initialize arrayElementCharacterCount
 	for (i = 0; i < groups; i++) {
 		arrayElementCharacterCount[i] = 0;
 	}
+
 	if ((displacement - groups) < 0) {
-		slither = displacement;
+		segment = displacement;
 	}
 	else {
 		segment = groups - 2 - (displacement % groups);
 		assignMultiple = false;
 	}
+	
 	for (i = displacement; i < (cipherText.length + displacement); i++) {
 		subStringLengths[segment]++;
 		if (segment > 1) {
@@ -286,10 +287,12 @@ function railfenceDecrypt() {
 			decipherIndex++;
 		}
 	}
+	// Print unknown symbols found in cipher text
 	if(unreadSymbols.length > 0) {
 		var errorString = "The following symbols cannot be read: "
 		for(i = 0; i < unreadSymbols.length; i++) {
 			var current = unreadSymbols[i];
+			// Add comma behind symbol if NOT the last symbol in set
 			if(i == unreadSymbols.length - 1) {
 				errorString += current;
 			}
@@ -299,6 +302,7 @@ function railfenceDecrypt() {
 		}
 		document.getElementById("unreadSymbols").value = errorString;
 	}
+	// Print decrypted text to plain text area
 	document.getElementById("railfencePlainText").value = plainText;
 }
 
