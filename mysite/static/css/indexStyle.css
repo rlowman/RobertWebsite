@@ -1,0 +1,205 @@
+
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+  color: #fff;
+  font-size: 82px;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .035em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .025em; /* Adjust as needed */
+  animation:
+  typing 2.5s steps(20, end),
+  blink-caret 1s step-end infinite;
+  font-family: 'Mina', sans-serif;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+#welcome{
+  height: 425px;
+  align-items: center;
+  display:flex;
+  justify-content: center;
+}
+
+.inside {
+  background-color: rgba(0, 0, 0, .50);
+  border-radius: 10px;
+  width:650px;
+  padding-top: 10px;
+}
+ul {
+  list-style: none;
+}
+
+#projectDiv {
+  background:rgba(176, 14, 46, .25);
+}
+#aboutDiv {
+  background: rgba(55, 45, 247, .25);
+}
+#contactDiv {
+  background: rgba(37, 184, 0, .25);
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+  margin-bottom: 0px;
+}
+body {
+  /*  background-image: url("../images/indexBackground.jpg");*/
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position:top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+  background: #000;
+  font-weight: 400;
+  font-size: 15px;
+  color: #aa3e03;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+hr.name {
+  width : 90%;
+  align : "center";
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+hr.name.bottom {
+  margin-bottom: 20px;
+}
+hr.button-split {
+  width:50%;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+h4.second {
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 0px;
+  margin-top: 8px;
+  margin-left: 0px;
+}
+h2.buttons {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-family: 'Mina', sans-serif;
+}
+p.button-info {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*=== Trigger  ===*/
+.animate {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/*=== Optional Delays, change values here  ===*/
+.one {
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+
+.two {
+  -webkit-animation-delay: 3.25s;
+  -moz-animation-delay: 3.25s;
+  animation-delay: 3.25s;
+}
+
+.three {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
+/*=== Animations start here  ===*/
+/*=== FADE IN  ===*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.btn-custom {
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  border-width: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.btn-custom.projects {
+  background: rgba(176, 14, 46, 1);
+}
+.btn-custom.about {
+  background-color: rgba(55, 45, 247, 1);
+}
+.btn-custom.contact {
+  background: rgba(37, 184, 0, 1);
+}
+.btn-custom:active, .btn-custom:focus {
+  background: rgba(235, 235, 235, 1);
+  border-color: rgba(173, 173, 173, 1);
+  color: rgba(51, 51, 51, 1);
+}
+/* Grow */
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+  transform: scale(1.1);
+  color: white;
+}

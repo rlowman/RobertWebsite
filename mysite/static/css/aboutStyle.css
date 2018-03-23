@@ -1,0 +1,117 @@
+body {
+  margin-top: 75px;
+}
+h3.brand {
+  color: white;
+  margin-top: 10px;
+}
+h2.skills {
+  text-align: center;
+}
+h2.intro {
+  text-align: center;
+  margin-bottom: 40px
+}
+hr.head {
+  width: 70%;
+  height: 1px;
+  background-color: rgba(55, 45, 247, 1);
+  color: rgba(55, 45, 247, 1);
+  border: 0 none;
+  margin: 5px auto;
+}
+hr.buttons {
+  width: 90%;
+  height: 1px;
+  background-color: rgba(55, 45, 247, 1);
+  color: rgba(55, 45, 247, 1);
+  border: 0 none;
+  margin: 5px auto;
+}
+h1.title {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+img.profile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  box-shadow: 5px 5px 5px #888888;
+}
+p.about {
+  font-size: 17px;
+}
+
+#custom-bootstrap-menu.navbar-default {
+  font-size: 18px;
+  background: rgba(55, 45, 247, 1);
+  border-bottom-width: 1px;
+  color: white;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+  color: white;
+  background-color: rgba(248, 248, 248, 0);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+  color: rgba(55, 45, 247, 1);
+  background-color: white;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(55, 45, 247, 1);
+    background-color: rgba(231, 231, 231, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #ddd;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #ddd;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #b00e2e;
+}
+
+.hvr-grow-rotate {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow-rotate:hover,
+.hvr-grow-rotate:focus,
+.hvr-grow-rotate:active {
+  -webkit-transform: scale(1.1) rotate(4deg);
+  transform: scale(1.1) rotate(4deg);
+  color: white;
+}
+.btn-custom {
+  font-size: 36px;
+  border-radius: 4px;
+  border-width: 1px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background: rgba(55, 45, 247, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+/*.tabcontent {
+background: rgba(55, 45, 247, .15);
+}*/
+#buttons {
+background-color: rgba(55, 45, 247, .15);
+}

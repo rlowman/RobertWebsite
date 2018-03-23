@@ -1,58 +1,12 @@
+{% load staticfiles %}
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static "css/contactStyle.css" %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-      body {
-        margin-top: 75px;
-      }
-      .top {
-        text-align: center;
-      }
-      #custom-bootstrap-menu.navbar-default {
-        font-size: 18px;
-        background: rgba(37, 184, 0, 1);
-        border-bottom-width: 1px;
-        color: white;
-      }
-      #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-        color: white;
-        background-color: rgba(248, 248, 248, 0);
-      }
-      #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
-      #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-        color: rgba(37, 184, 0, 1);
-        background-color: rgba(248, 248, 248, 1);
-      }
-      #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
-      #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
-      #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-        color: rgba(37, 184, 0, 1);
-        background-color: rgba(231, 231, 231, 1);
-      }
-      #custom-bootstrap-menu.navbar-default .navbar-toggle {
-        border-color: #ddd;
-      }
-      #custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
-      #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
-        background-color: #ddd;
-      }
-      #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
-        background-color: #888;
-      }
-      #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
-      #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
-        background-color: #b00e2e;
-      }
-
-      h3.brand {
-        color: rgba(248, 248, 248, 1);
-        margin-top: 10px;
-      }
-    </style>
   </head>
   <body>
     <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
