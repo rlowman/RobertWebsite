@@ -1,7 +1,8 @@
 from .exceptions import UnsolvableEquationError
 
+
 def cross(theRows, theCols):
-    "Cross product of elements in A and elements in B."
+    """Cross product of elements in A and elements in B."""
     returnArray = []
     for row in theRows:
         for col in theCols:
@@ -41,9 +42,9 @@ def assign(values, s, d):
     Return values, except return False if a contradiction is detected."""
     other_values = values[s].replace(d, '')
     if all(eliminate(values, s, d2) for d2 in other_values):
-        return values
-    else:
-        return False
+         return values
+     else:
+         return False
 
 def eliminate(values, s, d):
     """Eliminate d from values[s]; propagate when values or places <= 2.

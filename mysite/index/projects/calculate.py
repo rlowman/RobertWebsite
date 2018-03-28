@@ -1,8 +1,10 @@
 from .exceptions import UnsolvableEquationError
 
+## 
 validOperators = ['+', '-', '/', '!',
                   '*', '%', '^']
 
+## All symbols that the rotacaluc can read in
 allValidSymbols = ['0', '1', '2', '3',
                    '4', '5', '6', '7',
                    '8', '9', 'A', 'B',
@@ -140,20 +142,22 @@ def solvePostFix(postfixEqn):
             return printString
 
 def validateToken(theToken):
+    """Ensures that the given token is in the correct base, then parses that string
+    to the correct value"""
     valid = False
     base = 0
     negative = False
     if theToken.startswith('-'):
         negative = True
         theToken = theToken[1:]
-    if theToken.startswith('0b'):
+    if theToken.startswith('0b'):     #Binary
         base = 2
-    elif theToken.startswith('0o'):
+    elif theToken.startswith('0o'):   #Octal
         base = 8
-    elif theToken.startswith('0x'):
+    elif theToken.startswith('0x'):   #Hexadecimal
         base = 16
     else:
-        base = 10
+        base = 10                     #Default(Decimal)
     try:
         result = int(theToken, base)
         if negative:
