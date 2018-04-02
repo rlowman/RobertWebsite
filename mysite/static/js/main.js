@@ -10,7 +10,7 @@ function caeserEncrypt(){
 		var shift = parseInt(document.getElementById("shift").value);
 		for(i=0; i < text.length; i++){
 			if(re.test(text.charAt(i))){
-				
+
 				result += String.fromCharCode((text.charCodeAt(i) - 97 + shift)%26 + 97);
 			} else {
 				result += text.charAt(i);
@@ -453,13 +453,14 @@ full secrecy.
 function randomString() {
 	var chars = "abcdefghijklmnopqrstuvwxyz";
 	var randomstring = "";
-	var text = document.getElementById("plainText").value;
+	var text = document.getElementById("otpPlainText").value;
 	var length = text.replace(" ", "").length;
 	for (var i=0; i<length; i++) {
 		var rnum = Math.floor(Math.random() * 25);
 		randomstring += chars.substring(rnum,rnum+1);
 	}
-	document.getElementById("key").value = randomstring;
+	console.log(randomstring);
+	document.getElementById("otpKey").value = randomstring;
 }
 
 // Opens the selected cipher tool

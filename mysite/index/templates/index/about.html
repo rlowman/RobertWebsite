@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes|Mina|Acme">
     <link rel="stylesheet" type="text/css" href="{% static "css/aboutStyle.css" %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -35,7 +36,7 @@
         <img class = "profile img-rounded" src="{% static "images/prof pic.jpeg" %}" alt="My image"/>
       </div>
       <div class = "container-fluid col-md-5">
-        <h2 class="skills">Welcome, I'm Robert.</h2>
+        <h2 class="intro">Welcome, I'm Robert.</h2>
         <hr class = "head">
         <p class = "about">However you can call me by my middle name, Craig. I am a graduate from King's College
           of Pennslyvannia with a bachelor's degree in Computer Science. Currently, I live in Rock Hall, Maryland,
@@ -51,7 +52,7 @@
 
     <div class = "row text-center">
       <div class = "col-md-4 text-center">
-        <button class="btn btn-custom projects hvr-grow-rotate" onclick="openPage('skills', this)" id="defaultOpen">My Skills/Experience</button>
+        <button class="btn btn-custom projects hvr-grow-rotate" onclick="openPage('skills', this)" id="defaultOpen" autofocus>My Skills/Experience</button>
       </div>
       <div class = "col-md-4 text-center">
         <button class="btn btn-custom projects hvr-grow-rotate" onclick="openPage('life', this)">My Background</button>

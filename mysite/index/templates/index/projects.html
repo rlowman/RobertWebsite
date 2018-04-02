@@ -84,14 +84,17 @@
 		<div class="container" id = "projectDiv">
 			<h3 class="cipherLabel">Select a Cipher:</h3>
 			<div class="row text-center">
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<button class = "tablinks project-form tabs hvr-float-shadow" onclick="openCipher(event, 'caeser')">Caeser</button>
 				</div>
-				<div class = "col-md-4">
+				<div class = "col-md-3">
 		  		<button class = "tablinks project-form tabs hvr-float-shadow" onclick="openCipher(event, 'otp')">One-Time Pad</button>
 				</div>
-				<div class = "col-md-4">
+				<div class = "col-md-3">
 		  		<button class = "tablinks project-form tabs hvr-float-shadow" onclick="openCipher(event, 'railfence')">Rail-Fence</button>
+				</div>
+				<div class = "col-md-3">
+					<button class = "tablinks project-form tabs hvr-float-shadow" onclick="openCipher(event, 'playfair')">Playfair</button>
 				</div>
 			</div>
 
@@ -132,7 +135,7 @@
 					<br class="adjuster">
 					<div class="row text-center">
 						<b>Key:</b>
-						<input type = "text" id="key" size = "60" placeholder = "Enter Custom Key Here">
+						<input type = "text" id="otpKey" size = "60" placeholder = "Enter Custom Key Here">
 						<button class = "project-form submit hvr-grow" onclick="randomString()">Generate Random Key</button>
 					</div>
 					<div>
@@ -169,26 +172,26 @@
 					<b id="unreadSymbols"></b>
 				</div>
 			</div>
-		</div>
 
-		<!-- Sections for Playfair Cipher -->
-		<div id="playfair" class="tabcontent">
-			<div class="form-group">
-				<label for="cipherText">Cipher Text:</label>
-				<textarea class="form-control" rows="5" id="playfairCipherText" placeholder="Enter ciphered message here"></textarea>
-				<br class="adjuster">
-				<div class="row text-center">
-					<button class="project-form submit hvr-grow" onclick="playfairEncrypt()">Encrypt</button>
-					<button class="project-form submit hvr-grow" onclick="playfairDecrypt()">Decrypt</button>
-				</div>
-				<br class="adjuster">
-				<div class="row text-center">
-					<b>Key:</b>
-					<input type = "text" id="playfairKey" size = "60" placeholder = "Enter Key Here">
-				</div>
-				<div>
-					<label for="plainText">Plain Text:</label>
-					<textarea class="form-control" rows="5" id="playfairPlainText"></textarea>
+			<!-- Sections for Playfair Cipher -->
+			<div id="playfair" class="tabcontent">
+				<div class="form-group">
+					<label for="cipherText">Cipher Text:</label>
+					<textarea class="form-control" rows="5" id="playfairCipherText" placeholder="Enter ciphered message here"></textarea>
+					<br class="adjuster">
+					<div class="row text-center">
+						<button class="project-form submit hvr-grow" onclick="playfairEncrypt()">Encrypt</button>
+						<button class="project-form submit hvr-grow" onclick="playfairDecrypt()">Decrypt</button>
+					</div>
+					<br class="adjuster">
+					<div class="row text-center">
+						<b>Key:</b>
+						<input type = "text" id="playfairKey" size = "60" placeholder = "Enter Key Here">
+					</div>
+					<div>
+						<label for="plainText">Plain Text:</label>
+						<textarea class="form-control" rows="5" id="playfairPlainText"></textarea>
+					</div>
 				</div>
 			</div>
 		</div>

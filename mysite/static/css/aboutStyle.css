@@ -5,12 +5,9 @@ h3.brand {
   color: white;
   margin-top: 10px;
 }
-h2.skills {
-  text-align: center;
-}
 h2.intro {
   text-align: center;
-  margin-bottom: 40px
+  font-family: 'Mina', sans-serif;
 }
 hr.head {
   width: 70%;
@@ -42,6 +39,7 @@ img.profile {
 }
 p.about {
   font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #custom-bootstrap-menu.navbar-default {
@@ -99,9 +97,11 @@ p.about {
   color: white;
 }
 .btn-custom {
-  font-size: 36px;
+  font-size: 32px;
+  font-family: 'Mina', sans-serif;
   border-radius: 4px;
   border-width: 1px;
+  padding-bottom: 0px;
   margin-top: 25px;
   margin-bottom: 25px;
   background: rgba(55, 45, 247, 1);
