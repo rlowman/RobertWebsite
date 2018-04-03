@@ -25,7 +25,7 @@ SECRET_KEY = '$_w8@$#r6sy41)jlatxdey=iycf)e4og=odmj@+1j9u$g4=cf%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rlowman.pythonanywhere.com']
 
 
 # Application definition
