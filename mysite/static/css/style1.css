@@ -9,7 +9,7 @@
 }
 .cb-slideshow:after {
     content: '';
-    background-image: transparent url("../images/pattern.png") repeat top left;
+    background: transparent url("../images/pattern.png") repeat top left;
 }
 .cb-slideshow li span {
     width: 100%;
@@ -23,7 +23,7 @@
     background-repeat: none;
     opacity: 0;
     z-index: 0;
-	       -webkit-backface-visibility: hidden;
+	      -webkit-backface-visibility: hidden;
     -webkit-animation: imageAnimation 72s linear infinite 0s;
     -moz-animation: imageAnimation 72s linear infinite 0s;
     -o-animation: imageAnimation 72s linear infinite 0s;
