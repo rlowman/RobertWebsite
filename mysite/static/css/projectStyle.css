@@ -109,7 +109,8 @@ body {
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {
-    transform: scale(1.1);
+  transform: scale(1.1);
+  outline: none;
 }
 
 .hvr-float-shadow {
