@@ -72,6 +72,7 @@ p.about {
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
     background-color: #888;
+    color: rgba(55, 45, 247, 1);
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
@@ -95,6 +96,7 @@ p.about {
   -webkit-transform: scale(1.1) rotate(4deg);
   transform: scale(1.1) rotate(4deg);
   color: white;
+  outline: none;
 }
 .btn-custom {
   font-size: 32px;
