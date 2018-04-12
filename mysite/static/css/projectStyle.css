@@ -51,12 +51,13 @@ hr.sodokuBreak{
   border-top: 1px solid;
 }
 hr.projectBreak {
-  width : 80%;
+  width : 0%;
   align : "center";
   height: 1px;
   background-color: rgba(176, 14, 46, 1);
   color: rgba(176, 14, 46, 1);
   border: 0 none;
+  margin-top: 15px;
 }
 br.adjuster {
   display : block;
