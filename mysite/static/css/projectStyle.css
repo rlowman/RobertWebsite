@@ -57,6 +57,7 @@ hr.projectBreak {
   background-color: rgba(176, 14, 46, 1);
   color: rgba(176, 14, 46, 1);
   border: 0 none;
+  margin: 5px auto;
 }
 br.adjuster {
   display : block;
