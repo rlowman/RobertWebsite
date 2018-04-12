@@ -9,7 +9,7 @@ h2.intro {
   text-align: center;
   font-family: 'Mina', sans-serif;
 }
-hr.head {
+hr.about {
   width: 70%;
   height: 1px;
   background-color: rgba(55, 45, 247, 1);
@@ -17,13 +17,8 @@ hr.head {
   border: 0 none;
   margin: 5px auto;
 }
-hr.buttons {
+hr.about.buttons {
   width: 90%;
-  height: 1px;
-  background-color: rgba(55, 45, 247, 1);
-  color: rgba(55, 45, 247, 1);
-  border: 0 none;
-  margin: 5px auto;
 }
 h1.title {
   text-align: center;
@@ -96,6 +91,7 @@ p.about {
   -webkit-transform: scale(1.1) rotate(4deg);
   transform: scale(1.1) rotate(4deg);
   color: white;
+  outline: none;
 }
 .btn-custom {
   font-size: 32px;
