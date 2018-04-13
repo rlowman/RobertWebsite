@@ -51,15 +51,6 @@ hr.sodokuBreak{
   margin-bottom: 4px;
   border-top: 1px solid;
 }
-hr.projectBreak {
-  width : 90%;
-  align : "center";
-  height: 1px;
-  background-color: rgba(176, 14, 46, 1);
-  color: rgba(176, 14, 46, 1);
-  border: 0 none;
-  margin: 5px auto;
-}
 br.adjuster {
   display : block;
   margin : 7.5px;

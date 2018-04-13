@@ -39,6 +39,7 @@ p.about {
 
 #custom-bootstrap-menu.navbar-default {
   font-size: 18px;
+  font-family: 'Goblin One', cursive;
   background: rgba(55, 45, 247, 1);
   border-bottom-width: 1px;
   color: white;
