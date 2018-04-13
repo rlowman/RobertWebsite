@@ -4,6 +4,7 @@ body {
 h3.brand {
   color: white;
   margin-top: 10px;
+  font-size: 24px;
 }
 h2.intro {
   text-align: center;
@@ -38,8 +39,8 @@ p.about {
 }
 
 #custom-bootstrap-menu.navbar-default {
-  font-size: 18px;
-  font-family: 'Goblin One', cursive;
+  font-size: 16px;
+  font-family: 'Rhodium Libre', serif;
   background: rgba(55, 45, 247, 1);
   border-bottom-width: 1px;
   color: white;
