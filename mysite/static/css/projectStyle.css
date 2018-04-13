@@ -51,7 +51,7 @@ hr.sodokuBreak{
   border-top: 1px solid;
 }
 hr.projectBreak {
-  width : 0%;
+  width : 90%;
   align : "center";
   height: 1px;
   background-color: rgba(176, 14, 46, 1);

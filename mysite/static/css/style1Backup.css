@@ -57,7 +57,7 @@
 }
 .cb-slideshow li:nth-child(2) span {
     background-image: url("../images/2.jpg");
-    background-position: top;
+    background-position: 50% 25%;
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
@@ -93,7 +93,7 @@
 }
 .cb-slideshow li:nth-child(6) span {
     background-image: url("../images/6.jpg");
-    background-position: top;
+    background-position: 50% 25%;
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;
