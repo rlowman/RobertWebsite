@@ -6,6 +6,7 @@ body {
 }
 #custom-bootstrap-menu.navbar-default {
   font-size: 18px;
+  font-family: 'Rhodium Libre', serif;
   background: rgba(37, 184, 0, 1);
   border-bottom-width: 1px;
   color: white;
@@ -43,4 +44,5 @@ body {
 h3.brand {
   color: rgba(248, 248, 248, 1);
   margin-top: 10px;
+  font-size: 30px;
 }
