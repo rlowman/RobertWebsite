@@ -1,4 +1,9 @@
-
+div.nvarRow {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 /* DEMO-SPECIFIC STYLES */
 .typewriter h1 {
   color: #fff;
