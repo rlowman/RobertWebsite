@@ -207,39 +207,3 @@ p.button-info {
   transform: scale(1.1);
   color: white;
 }
-#custom-bootstrap-menu.navbar-default {
-  font-size: 18px;
-  font-family: 'Rhodium Libre', serif;
-  background: rgba(55, 45, 247, 1);
-  border-bottom-width: 1px;
-  color: white;
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-  color: white;
-  background-color: rgba(248, 248, 248, 0);
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-  color: rgba(55, 45, 247, 1);
-  background-color: white;
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-    color: rgba(55, 45, 247, 1);
-    background-color: rgba(231, 231, 231, 1);
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle {
-    border-color: #ddd;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
-#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
-    background-color: #ddd;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
-    background-color: #888;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
-#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: rgba(55, 45, 247, 1);
-}
