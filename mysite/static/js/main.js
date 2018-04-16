@@ -27,7 +27,7 @@ function otpEncrypt(){
 		alert("There was no plain text inserted.");
 	}
 	else {
-		var key = document.getElementById("key").value.toLowerCase();
+		var key = document.getElementById("otpKey").value.toLowerCase();
 		var result = "";
 		var re = /[a-z]/;
 		var keyIndex = 0;
@@ -223,7 +223,7 @@ function otpDecrypt(){
 		alert("please enter some ciphertext (letters only)");
 	}
 	else {
-		var key = document.getElementById("key").value;
+		var key = document.getElementById("otpKey").value;
 	  var result = "";
 		var re = /[a-z]/;
 		var keyIndex = 0;

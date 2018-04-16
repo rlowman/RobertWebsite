@@ -1,0 +1,384 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Projects</title>
+		<meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes|Mina|Acme|Rhodium+Libre">
+		<link rel="stylesheet" type="text/css" href="{% static "css/projectStyle.css" %}">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+	</head>
+	<body>
+		<div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    	<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<h3 class = "brand">Projects</h3>
+				</div>
+      	<div class="collapse navbar-collapse navbar-menubuilder" id ="myNavbar">
+	        <ul class="nav navbar-nav navbar-right">
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li class = "active"><a href="/projects">Projects</a></li>
+						<li><a href = "/contact">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+		</div>
+
+		<h2 align = "center">Polish Notiation Calculator</h2>
+
+		<div class = "container" id = "projectDiv">
+			<form method="POST" action="/projects/">
+				{% csrf_token %}
+				<div class = "row">
+					<div class = "col-md-6 text-left">
+						<div class = "row">
+							<div class = "col-md-6">
+								<b class = "spacer">{{ rotForm.base.label }}</b>
+								{{ rotForm.base }}
+							</div>
+							<div class = "col-md-6">
+								<b class = "spacer">{{ rotForm.notation.label }}</b>
+								{{ rotForm.notation }}
+							</div>
+						</div>
+						<div class = "form-inline text-center">
+							{{ rotForm.equation }}
+							<button type="submit" class = "project-form submit hvr-grow" name = "polish_notation">Submit</button>
+						</div>
+						<br>
+						<b>Answer: {{ result|default:"" }}</b>
+						{% if error %}
+							<b>{{ error.message }}</b>
+						{% endif %}
+					</div>
+					<br class="adjuster">
+					<div class = "col-md-5">
+						<div class="text-center">
+							<br class="adjuster">
+							<button	type="button" class="project-form submit hvr-grow" data-toggle="collapse" data-target="#demo">More Information</button>
+							<div id="demo" class="collapse">
+	    					<p>Designing, building, and testing a polish/reverse-polish notation calulator
+									was one of my first major projects in the field of software development. While
+									it may seem simple and reinvent-the-wheel in a sense, featuring it in my personal
+									website has allowed me to learn the first steps in creating a web-based python application.
+									For more information on polish/reverso polish notation, click <a href = "www.wiki.c2.com/?PolishNotation">Here</a></p>
+	  					</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<h2 align="center">JavaScript Cryptographer</h2>
+
+		<div class="container" id = "projectDiv">
+			<h3 class="cipherLabel">Select a Cipher:</h3>
+			<div class="row text-center">
+				<div class="col-md-3">
+					<button class = "tablinks project-form tabs hvr-float-shadow" onclick="openCipher(event, 'caeser')">Caeser</button>
+				</div>
+				<div class = "col-md-3">
+		  		<button class = "tablinks project-form tabs hvr-float-shadow" onclick="openCipher(event, 'otp')">One-Time Pad</button>
+				</div>
+				<div class = "col-md-3">
+		  		<button class = "tablinks project-form tabs hvr-float-shadow" onclick="openCipher(event, 'railfence')">Rail-Fence</button>
+				</div>
+				<div class = "col-md-3">
+					<button class = "tablinks project-form tabs hvr-float-shadow" onclick="openCipher(event, 'playfair')">Playfair</button>
+				</div>
+			</div>
+
+			<!-- Section for Caeser Cipher -->
+			<div id="caeser" class="tabcontent">
+				<div class="form-group">
+					<label for="cipherText">Cipher Text:</label>
+					<textarea class="form-control" rows="5" id="caeserCipherText" placeholder="Enter ciphered message here"></textarea>
+					<br class="adjuster">
+					<div class="row text-center">
+						<div class = "col-md-6">
+							<button class="project-form submit hvr-grow" onclick="caeserEncrypt()">Encrypt</button>
+							<button class="project-form submit hvr-grow" onclick="caeserDecrypt()">Decrypt</button>
+						</div>
+						<div class = "col-md-6">
+							<b>Shift: </b>
+							<input type="number" id="shift" min="0" max="25" placeholder="(0-25)">
+						</div>
+					</div>
+					<br class="adjuster">
+					<div>
+						<label for="plainText">Plain Text:</label>
+						<textarea class="form-control" rows="5" id="caeserPlainText"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<!-- Sections for One Time Pad Cipher -->
+			<div id="otp" class="tabcontent">
+				<div class="form-group">
+					<label for="cipherText">Cipher Text:</label>
+					<textarea class="form-control" rows="5" id="otpCipherText" placeholder="Enter ciphered message here"></textarea>
+					<br class="adjuster">
+					<div class="row text-center">
+						<button class="project-form submit hvr-grow" onclick="otpEncrypt()">Encrypt</button>
+						<button class="project-form submit hvr-grow" onclick="otpDecrypt()">Decrypt</button>
+					</div>
+					<br class="adjuster">
+					<div class="row text-center">
+						<b>Key:</b>
+						<input type = "text" id="otpKey" size = "60" placeholder = "Enter Custom Key Here">
+						<button class = "project-form submit hvr-grow" onclick="randomString()">Generate Random Key</button>
+					</div>
+					<div>
+						<label for="plainText">Plain Text:</label>
+						<textarea class="form-control" rows="5" id="otpPlainText"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<!-- Section for Rail Fence cipher -->
+			<div id="railfence" class="tabcontent">
+				<div class="form-group">
+					<label for="cipherText">Cipher Text:</label>
+					<textarea class="form-control" rows="5" id="railfenceCipherText" placeholder="Enter ciphered message here"></textarea>
+					<br class="adjuster">
+					<div class="row text-center">
+						<button class="project-form submit hvr-grow" onclick="railfenceEncrypt()">Encrypt</button>
+						<button class="project-form submit hvr-grow" onclick="railfenceDecrypt()">Decrypt</button>
+					</div>
+					<br class="adjuster">
+					<div class="row text-center">
+						<b>Number of Rails:</b>
+						<input type="number" id="groups" min="0" max="25">
+						&nbsp;
+						<b>Displacement:</b>
+						<input type="number" id="displacement" min="0" max="25">
+					</div>
+					<div>
+						<label for="plainText">Plain Text:</label>
+						<textarea class="form-control" rows="5" id="railfencePlainText" placeholder="Enter plain text here"></textarea>
+					</div>
+					<b id="groupError"></b>
+					<b id="displacementError"></b>
+					<b id="unreadSymbols"></b>
+				</div>
+			</div>
+
+			<!-- Sections for Playfair Cipher -->
+			<div id="playfair" class="tabcontent">
+				<div class="form-group">
+					<label for="cipherText">Cipher Text:</label>
+					<textarea class="form-control" rows="5" id="playfairCipherText" placeholder="Enter ciphered message here"></textarea>
+					<br class="adjuster">
+					<div class="row text-center">
+						<button class="project-form submit hvr-grow" onclick="playfairEncrypt()">Encrypt</button>
+						<button class="project-form submit hvr-grow" onclick="playfairDecrypt()">Decrypt</button>
+					</div>
+					<br class="adjuster">
+					<div class="row text-center">
+						<b>Key:</b>
+						<input type = "text" id="playfairKey" size = "60" placeholder = "Enter Key Here">
+					</div>
+					<div>
+						<label for="plainText">Plain Text:</label>
+						<textarea class="form-control" rows="5" id="playfairPlainText"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src = {% static "js/main.js" %}></script>
+
+		<h2 align = "center">AI Based Sodoku Solver</h2>
+
+		<div class = "container" id="sodokuDiv">
+			<form method= "POST" action="/projects/">
+				{% csrf_token %}
+				<h2>
+				<div text-align="center">
+					<div class = "row">
+						<div class = "col-md-4" id="right">
+							<div class = "row">
+								{{board.cellRow0Col0}}
+								{{board.cellRow0Col1}}
+								{{board.cellRow0Col2}}
+							</div>
+							<div class = "row">
+								{{board.cellRow1Col0}}
+								{{board.cellRow1Col1}}
+								{{board.cellRow1Col2}}
+							</div>
+							<div class = "row">
+								{{board.cellRow2Col0}}
+								{{board.cellRow2Col1}}
+								{{board.cellRow2Col2}}
+							</div>
+						</div>
+						<div class = "col-md-4" id="right">
+							<div class = "row">
+								{{board.cellRow0Col3}}
+								{{board.cellRow0Col4}}
+								{{board.cellRow0Col5}}
+							</div>
+							<div class = "row">
+								{{board.cellRow1Col3}}
+								{{board.cellRow1Col4}}
+								{{board.cellRow1Col5}}
+							</div>
+							<div class = "row">
+								{{board.cellRow2Col3}}
+								{{board.cellRow2Col4}}
+								{{board.cellRow2Col5}}
+							</div>
+						</div>
+						<div class = "col-md-4">
+							<div class = "row">
+								{{board.cellRow0Col6}}
+								{{board.cellRow0Col7}}
+								{{board.cellRow0Col8}}
+							</div>
+							<div class = "row">
+								{{board.cellRow1Col6}}
+								{{board.cellRow1Col7}}
+								{{board.cellRow1Col8}}
+							</div>
+							<div class = "row">
+								{{board.cellRow2Col6}}
+								{{board.cellRow2Col7}}
+								{{board.cellRow2Col8}}
+							</div>
+						</div>
+					</div>
+
+					<hr class="sodokuBreak">
+
+					<div class = "row">
+						<div class = "col-md-4" id="right">
+							<div class = "row">
+								{{board.cellRow3Col0}}
+								{{board.cellRow3Col1}}
+								{{board.cellRow3Col2}}
+							</div>
+							<div class = "row">
+								{{board.cellRow4Col0}}
+								{{board.cellRow4Col1}}
+								{{board.cellRow4Col2}}
+							</div>
+							<div class = "row">
+								{{board.cellRow5Col0}}
+								{{board.cellRow5Col1}}
+								{{board.cellRow5Col2}}
+							</div>
+						</div>
+						<div class = "col-md-4" id="right">
+							<div class = "row">
+								{{board.cellRow3Col3}}
+								{{board.cellRow3Col4}}
+								{{board.cellRow3Col5}}
+							</div>
+							<div class = "row">
+								{{board.cellRow4Col3}}
+								{{board.cellRow4Col4}}
+								{{board.cellRow4Col5}}
+							</div>
+							<div class = "row">
+								{{board.cellRow5Col3}}
+								{{board.cellRow5Col4}}
+								{{board.cellRow5Col5}}
+							</div>
+						</div>
+						<div class = "col-md-4">
+							<div class = "row">
+								{{board.cellRow3Col6}}
+								{{board.cellRow3Col7}}
+								{{board.cellRow3Col8}}
+							</div>
+							<div class = "row">
+								{{board.cellRow4Col6}}
+								{{board.cellRow4Col7}}
+								{{board.cellRow4Col8}}
+							</div>
+							<div class = "row">
+								{{board.cellRow5Col6}}
+								{{board.cellRow5Col7}}
+								{{board.cellRow5Col8}}
+							</div>
+						</div>
+					</div>
+
+					<hr class="sodokuBreak">
+
+					<div class = "row">
+						<div class = "col-md-4" id="right">
+							<div class = "row">
+								{{board.cellRow6Col0}}
+								{{board.cellRow6Col1}}
+								{{board.cellRow6Col2}}
+							</div>
+							<div class = "row">
+								{{board.cellRow7Col0}}
+								{{board.cellRow7Col1}}
+								{{board.cellRow7Col2}}
+							</div>
+							<div class = "row">
+								{{board.cellRow8Col0}}
+								{{board.cellRow8Col1}}
+								{{board.cellRow8Col2}}
+							</div>
+						</div>
+						<div class = "col-md-4" id="right">
+							<div class = "row">
+								{{board.cellRow6Col3}}
+								{{board.cellRow6Col4}}
+								{{board.cellRow6Col5}}
+							</div>
+							<div class = "row">
+								{{board.cellRow7Col3}}
+								{{board.cellRow7Col4}}
+								{{board.cellRow7Col5}}
+							</div>
+							<div class = "row">
+								{{board.cellRow8Col3}}
+								{{board.cellRow8Col4}}
+								{{board.cellRow8Col5}}
+							</div>
+						</div>
+						<div class = "col-md-4">
+							<div class = "row">
+								{{board.cellRow6Col6}}
+								{{board.cellRow6Col7}}
+								{{board.cellRow6Col8}}
+							</div>
+							<div class = "row">
+								{{board.cellRow7Col6}}
+								{{board.cellRow7Col7}}
+								{{board.cellRow7Col8}}
+							</div>
+							<div class = "row">
+								{{board.cellRow8Col6}}
+								{{board.cellRow8Col7}}
+								{{board.cellRow8Col8}}
+							</div>
+						</div>
+					</div>
+				</div>
+				</h2>
+				<div class = "row">
+					<button type="submit" name = "sodoku" class="project-form submit hvr-grow">Solve</button>
+				</div>
+			</form>
+		</div>
+		<hr class = "projectBreak">
+		<h3 align="center">More to come!</h3>
+		<hr class = "projectBreak">
+	</body>
+</html>
