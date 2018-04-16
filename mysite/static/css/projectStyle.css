@@ -48,6 +48,9 @@ hr.headerBreak {
   height : 1px;
   float : "center";
 }
+hr.projectBreak {
+  width: 80%;
+}
 hr.sodokuBreak{
   margin-top: 0px;
   margin-bottom: 4px;
@@ -84,6 +87,7 @@ body {
   padding-right: 25px;
   margin-left: 20px;
   margin-right: 20px;
+  margin-top: 5px;
   font-family: 'Mina', sans-serif;
 }
 .project-form.tabs {
@@ -162,7 +166,6 @@ body {
   font-size: 18px;
   font-family: 'Rhodium Libre', serif;
   background-color: rgba(176, 14, 46, 1);
-  border-bottom-width: 1px;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     color: rgba(240, 235, 235, 1);
