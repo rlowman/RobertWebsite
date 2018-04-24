@@ -375,6 +375,9 @@
 				<div class = "row">
 					<button type="submit" name = "sodoku" class="project-form submit hvr-grow">Solve</button>
 				</div>
+				{% if sodokuError %}
+					<b>{{ sodokuError.message }}</b>
+				{% endif %}
 			</form>
 		</div>
 		<hr class = "projectBreak">

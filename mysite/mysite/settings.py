@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = ""
-SECRET_KEY = os.environ["SECRET_KEY_MYSITE"]
+SECRET_KEY = "$_w8@$#r6sy41)jlatxdey=iycf)e4og=odmj@+1j9u$g4=cf%"
+#SECRET_KEY = os.environ["SECRET_KEY_MYSITE"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['rlowman.pythonanywhere.com', 'localhost']
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index.apps.IndexConfig',
@@ -78,8 +79,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE' : 'django.db.backends.postgresql',
+        'NAME' : 'robwebsitedb',
+        'USER' : 'super',
+        'PASSWORD' : 'Patriots8',
+        'HOST' : 'rlowman-738.postgres.pythonanywhere-services.com',
+        'PORT' : '10738',
     }
 }
 

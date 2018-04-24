@@ -45,12 +45,13 @@ def projects(request):
             if board.is_valid():
                 alg = board.cleaned_data['algorithm']
                 temp = readBoard(board)
-                data = solveBacktracking(temp)
-                if data:
-                    board = writeBoard(data)
-                else:
-                    print(error)
-                return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
+                try:
+                    data = solveBacktracking(temp)
+                    return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
+                except UnsolvableEquationError as sodokuError:
+                    return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board, 'sodokuError':sodokuError})
+
+
     else:
         form = RotaluclacForm()
     return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
