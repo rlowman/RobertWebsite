@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE' : 'django.db.backends.postgresql',
         'NAME' : 'robwebsitedb',
         'USER' : 'super',
-        'PASSWORD' : 'Patriots8',
+        'PASSWORD' : '',
         'HOST' : 'rlowman-738.postgres.pythonanywhere-services.com',
         'PORT' : '10738',
     }

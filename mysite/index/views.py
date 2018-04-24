@@ -50,8 +50,6 @@ def projects(request):
                     return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
                 except UnsolvableEquationError as sodokuError:
                     return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board, 'sodokuError':sodokuError})
-
-
     else:
         form = RotaluclacForm()
     return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
