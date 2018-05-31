@@ -27,8 +27,8 @@
 h1 {
   font-family: "Impact", cursive;
 }
-h2 {
-  font-family: monospace;
+h2.cells {
+  font-family: monospace; 
 }
 h3.brand {
   color: rgba(248, 248, 248, 1);

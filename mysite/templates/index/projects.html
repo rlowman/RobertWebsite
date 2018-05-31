@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Projects</title>
+		  <link rel="shortcut icon" href="{% static "images/icon.png" %}" type="image/x-con">
 		<meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -203,7 +204,7 @@
 		<div class = "container" id="sodokuDiv">
 			<form method= "POST" action="/projects/">
 				{% csrf_token %}
-				<h2>
+				<h2 class = "cells">
 				<div text-align="center">
 					<div class = "row">
 						<div class = "col-md-4" id="right">

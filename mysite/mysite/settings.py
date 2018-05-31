@@ -20,8 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "$_w8@$#r6sy41)jlatxdey=iycf)e4og=odmj@+1j9u$g4=cf%"
-#SECRET_KEY = os.environ["SECRET_KEY_MYSITE"]
+SECRET_KEY = os.environ["SECRET_KEY_MYSITE"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,16 +76,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE' : 'django.db.backends.postgresql',
-        'NAME' : 'robwebsitedb',
-        'USER' : 'super',
-        'PASSWORD' : '',
-        'HOST' : 'rlowman-738.postgres.pythonanywhere-services.com',
-        'PORT' : '10738',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE' : 'django.db.backends.postgresql',
+#         'NAME' : 'myappdb',
+#         'USER' : 'myappuser',
+#         'PASSWORD' : 'Builder',
+#         'HOST' : 'rlowman-738.postgres.pythonanywhere-services.com',
+#         'PORT' : 10738,
+#     }
+# }
 
 
 # Password validation
