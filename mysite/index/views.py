@@ -42,14 +42,15 @@ def projects(request):
                     return render(request, 'index/projects.html', {'result': result, 'rotForm':rotForm, 'board':board, 'error':error})
         elif "sodoku" in request.POST:
             board = SodokuBoard(request.POST)
-            if board.is_valid():
-                alg = board.cleaned_data['algorithm']
-                temp = readBoard(board)
-                try:
-                    data = solveBacktracking(temp)
-                    return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
-                except UnsolvableEquationError as sodokuError:
-                    return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board, 'sodokuError':sodokuError})
+            print ("H")
+            print ("HEre")
+            temp = readBoard(board)
+            try:
+                data = solveBacktracking(temp)
+                board = writeBoard(data)
+                return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
+            except UnsolvableEquationError as sodokuError:
+                return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board, 'sodokuError':sodokuError})
     else:
         form = RotaluclacForm()
     return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
@@ -62,15 +63,15 @@ def about(request):
 
 def readBoard(board):
     returnValue = []
-    for row in range(9):
-        for col in range(9):
-            getString = getString = "cellRow" + str(row) + "Col" + str(col)
-            temp = board.cleaned_data[getString]
-            if len(temp) > 0:
-                returnValue.append(board.cleaned_data[getString])
-            else:
-                returnValue.append(0)
-    print(returnValue)
+    if board.is_valid():
+        for row in range(9):
+            for col in range(9):
+                getString = 'cellRow' + str(row) + 'Col' + str(col)
+                temp = board.cleaned_data[getString]
+                if len(temp) > 0:
+                    returnValue.append(temp)
+                else:
+                    returnValue.append(0)
     return returnValue
 
 def writeBoard(data):

@@ -23,10 +23,6 @@ class SodokuBoard(forms.Form):
     # for x in range(8):
     #     for y in range(8):
     #         board[x][y]
-    CHOICES = [('backtracking', 'Backtracking')]
-
-    algorithm = forms.CharField(label = "Select the solving algorithm",
-                                widget = forms.Select(choices = CHOICES))
     cellRow0Col0 = forms.CharField(max_length=1, required=False, widget=forms.TextInput(attrs={"size":"1"}))
     cellRow0Col1 = forms.CharField(max_length=1, required=False, widget=forms.TextInput(attrs={"size":"1"}))
     cellRow0Col2 = forms.CharField(max_length=1, required=False, widget=forms.TextInput(attrs={"size":"1"}))
