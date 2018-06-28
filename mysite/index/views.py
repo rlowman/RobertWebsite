@@ -42,15 +42,14 @@ def projects(request):
                     return render(request, 'index/projects.html', {'result': result, 'rotForm':rotForm, 'board':board, 'error':error})
         elif "sodoku" in request.POST:
             board = SodokuBoard(request.POST)
-            print ("H")
-            print ("HEre")
-            temp = readBoard(board)
-            try:
-                data = solveBacktracking(temp)
-                board = writeBoard(data)
-                return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
-            except UnsolvableEquationError as sodokuError:
-                return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board, 'sodokuError':sodokuError})
+            if board.is_valid():
+                temp = readBoard(board)
+                try:
+                    data = solveBacktracking(temp)
+                    board = writeBoard(data)
+                    return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
+                except UnsolvableEquationError as sodokuError:
+                    return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board, 'sodokuError':sodokuError})
     else:
         form = RotaluclacForm()
     return render(request, 'index/projects.html', {'rotForm':rotForm, 'board':board})
